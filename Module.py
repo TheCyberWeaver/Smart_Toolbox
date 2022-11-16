@@ -1,6 +1,6 @@
 
 class CoderInterface:
-    Name = ""
+    Name = "CodeInterface"
     Description = "The Author of this plugin is stupid, he gives no description about this plugin"
     version = ""
     def __init__(self, str="",key="",method=""):

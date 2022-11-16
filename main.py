@@ -46,7 +46,8 @@ class MainWindow(QMainWindow):
         self.ui.listWidget_2.itemDoubleClicked.connect(self.setMethodMember)
         # 连接start和convert按钮
         self.ui.pushButton.clicked.connect(self.ManualConversion)
-
+        #修复文字背景为白色的问题
+        self.ui.label_2.setStyleSheet("""background-color: transparent;""")
         # 默认方式
         self.ui.encode.setChecked(True)
 
@@ -71,7 +72,8 @@ class MainWindow(QMainWindow):
         self.output()
 
     def showInfo(self):
-        self.ui.output_text_edit_2.setText(self.method.Description)
+        text="version:"+self.method.version+"\n\n"+self.method.Description
+        self.ui.output_text_edit_2.setText(text)
 
     def update_list(self):
         templist = []
@@ -142,10 +144,8 @@ class MainWindow(QMainWindow):
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = MainWindow()
-    window.setWindowTitle("SmartCoder")
 
     app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
-
     window.show()  # 显示窗口
 
     sys.exit(app.exec())
