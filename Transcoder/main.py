@@ -7,9 +7,11 @@ from PySide6.QtGui import *
 from .methods import *
 from gui.core.json_settings import Settings
 from gui.uis.pages.main_pages import Ui_MainPages
+
+
 class Transcoderpage(QMainWindow):
 
-    def __init__(self,loadpage):
+    def __init__(self, loadpage):
         super().__init__()
         self.Methods_manager = CoderPluginManager()
         self.Methods_manager.loadPlugins()
@@ -45,14 +47,16 @@ class Transcoderpage(QMainWindow):
         self.ui.listWidget_2.itemDoubleClicked.connect(self.setMethodMember)
         # 连接start和convert按钮
         self.ui.pushButton.clicked.connect(self.ManualConversion)
-        #修复Label字体不统一的问题
+        # 修复Label字体不统一的问题
         font = QFont()
         font.setFamilies([u"Segoe UI Black"])
         self.ui.label_2.setFont(font)
         self.ui.page_1.setStyleSheet("QLabel{font-size: 14pt;"
                                      "font-family: \"Impact\"}")
+        # 处理搜索清除按钮
+        self.ui.ClearButton.clicked.connect(self.ui.lineEdit.clear)
 
-        #self.ui.page_1.setStyleSheet(f'''
+        # self.ui.page_1.setStyleSheet(f'''
         #                            font: {self.settings["font"]["text_size"]}pt "{self.settings["font"]["family"]}";
         #                        ''')
         # 默认方式
@@ -79,14 +83,14 @@ class Transcoderpage(QMainWindow):
         self.output()
 
     def showInfo(self):
-        text="version:"+self.method.version+"\n\n"+self.method.Description
+        text = "version:" + self.method.version + "\n\n" + self.method.Description
         self.ui.output_text_edit_2.setText(text)
 
     def update_list(self):
         templist = []
         str = self.ui.lineEdit.text()
         for method_name in self.Methods_manager.getPluginsName():
-            if method_name.find(str) != -1:
+            if method_name.lower().find(str.lower()) != -1 or method_name.upper().find(str.upper()) != -1:
                 templist.append(method_name)
         self.showList(self.ui.listWidget, templist)
 
@@ -152,8 +156,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Transcoderpage()
 
-
-    #app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
+    # app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
     window.show()  # 显示窗口
 
     sys.exit(app.exec())

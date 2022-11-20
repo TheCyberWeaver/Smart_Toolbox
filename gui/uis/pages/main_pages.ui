@@ -55,9 +55,9 @@
     <widget class="QTextEdit" name="output_text_edit_2">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>30</x>
        <y>300</y>
-       <width>231</width>
+       <width>211</width>
        <height>181</height>
       </rect>
      </property>
@@ -80,7 +80,7 @@
       <rect>
        <x>80</x>
        <y>10</y>
-       <width>161</width>
+       <width>131</width>
        <height>31</height>
       </rect>
      </property>
@@ -88,9 +88,9 @@
     <widget class="QLabel" name="label_4">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>260</x>
        <y>200</y>
-       <width>51</width>
+       <width>41</width>
        <height>31</height>
       </rect>
      </property>
@@ -137,10 +137,10 @@
     <widget class="QRadioButton" name="encode">
      <property name="geometry">
       <rect>
-       <x>370</x>
-       <y>260</y>
+       <x>400</x>
+       <y>250</y>
        <width>91</width>
-       <height>21</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -164,9 +164,9 @@
      <property name="geometry">
       <rect>
        <x>510</x>
-       <y>260</y>
+       <y>248</y>
        <width>101</width>
-       <height>19</height>
+       <height>41</height>
       </rect>
      </property>
      <property name="text">
@@ -176,9 +176,9 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>250</x>
+       <x>260</x>
        <y>250</y>
-       <width>71</width>
+       <width>121</width>
        <height>41</height>
       </rect>
      </property>
@@ -254,6 +254,19 @@
       <font>
        <pointsize>10</pointsize>
       </font>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ClearButton">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>10</y>
+       <width>21</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X</string>
      </property>
     </widget>
    </widget>

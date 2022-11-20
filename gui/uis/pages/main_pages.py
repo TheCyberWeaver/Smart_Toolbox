@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_pagesgbBxzQ.ui'
+## Form generated from reading UI file 'main_pagesamLXZM.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -46,7 +46,7 @@ class Ui_MainPages(object):
         self.input_text_edit.setGeometry(QRect(260, 50, 531, 131))
         self.lineEdit = QLineEdit(self.page_1)
         self.lineEdit.setObjectName(u"lineEdit")
-        self.lineEdit.setGeometry(QRect(80, 10, 161, 31))
+        self.lineEdit.setGeometry(QRect(80, 10, 131, 31))
         self.label_4 = QLabel(self.page_1)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(260, 200, 41, 31))
@@ -90,6 +90,9 @@ class Ui_MainPages(object):
         font = QFont()
         font.setPointSize(10)
         self.listWidget_2.setFont(font)
+        self.ClearButton = QPushButton(self.page_1)
+        self.ClearButton.setObjectName(u"ClearButton")
+        self.ClearButton.setGeometry(QRect(190, 10, 21, 31))
         self.pages.addWidget(self.page_1)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -168,6 +171,7 @@ class Ui_MainPages(object):
         self.label_6.setText(QCoreApplication.translate("MainPages", u"Using:", None))
         self.label_5.setText(QCoreApplication.translate("MainPages", u"Info", None))
         self.label.setText(QCoreApplication.translate("MainPages", u"Input Text", None))
+        self.ClearButton.setText(QCoreApplication.translate("MainPages", u"X", None))
         self.label_7.setText(QCoreApplication.translate("MainPages", u"Search", None))
         self.label_8.setText("")
         self.label_9.setText(QCoreApplication.translate("MainPages", u"saved Passwords", None))
