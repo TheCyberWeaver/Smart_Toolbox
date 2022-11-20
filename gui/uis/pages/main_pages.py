@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_pages.ui'
+## Form generated from reading UI file 'main_pagesgbBxzQ.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -15,11 +15,11 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QGroupBox, QLabel,
-    QLineEdit, QListWidget, QListWidgetItem, QPlainTextEdit,
-    QPushButton, QRadioButton, QSizePolicy, QStackedWidget,
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGroupBox,
+    QHeaderView, QLCDNumber, QLabel, QLineEdit,
+    QListWidget, QListWidgetItem, QPlainTextEdit, QPushButton,
+    QRadioButton, QSizePolicy, QStackedWidget, QTableView,
     QTextEdit, QVBoxLayout, QWidget)
-
 
 class Ui_MainPages(object):
     def setupUi(self, MainPages):
@@ -31,7 +31,6 @@ class Ui_MainPages(object):
         self.pages.setGeometry(QRect(0, 0, 801, 511))
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
-        self.page_1.setStyleSheet(u"")
         self.groupBox = QGroupBox(self.page_1)
         self.groupBox.setObjectName(u"groupBox")
         self.groupBox.setGeometry(QRect(260, 430, 301, 41))
@@ -41,7 +40,7 @@ class Ui_MainPages(object):
         self.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
         self.output_text_edit_2 = QTextEdit(self.page_1)
         self.output_text_edit_2.setObjectName(u"output_text_edit_2")
-        self.output_text_edit_2.setGeometry(QRect(10, 300, 231, 181))
+        self.output_text_edit_2.setGeometry(QRect(30, 300, 211, 181))
         self.input_text_edit = QPlainTextEdit(self.page_1)
         self.input_text_edit.setObjectName(u"input_text_edit")
         self.input_text_edit.setGeometry(QRect(260, 50, 531, 131))
@@ -50,12 +49,7 @@ class Ui_MainPages(object):
         self.lineEdit.setGeometry(QRect(80, 10, 161, 31))
         self.label_4 = QLabel(self.page_1)
         self.label_4.setObjectName(u"label_4")
-        self.label_4.setGeometry(QRect(260, 200, 51, 31))
-        font = QFont()
-        font.setFamilies([u"Segoe Script"])
-        font.setPointSize(14)
-        font.setBold(False)
-        self.label_4.setFont(font)
+        self.label_4.setGeometry(QRect(260, 200, 41, 31))
         self.output_text_edit = QTextEdit(self.page_1)
         self.output_text_edit.setObjectName(u"output_text_edit")
         self.output_text_edit.setGeometry(QRect(260, 300, 531, 111))
@@ -65,20 +59,18 @@ class Ui_MainPages(object):
         self.label_3 = QLabel(self.page_1)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(10, 10, 71, 28))
-        self.label_3.setFont(font)
         self.encode = QRadioButton(self.page_1)
         self.encode.setObjectName(u"encode")
-        self.encode.setGeometry(QRect(390, 260, 101, 21))
+        self.encode.setGeometry(QRect(400, 250, 91, 41))
         self.pushButton_3 = QPushButton(self.page_1)
         self.pushButton_3.setObjectName(u"pushButton_3")
         self.pushButton_3.setGeometry(QRect(570, 420, 221, 51))
         self.decode = QRadioButton(self.page_1)
         self.decode.setObjectName(u"decode")
-        self.decode.setGeometry(QRect(510, 260, 91, 19))
+        self.decode.setGeometry(QRect(510, 248, 101, 41))
         self.label_2 = QLabel(self.page_1)
         self.label_2.setObjectName(u"label_2")
-        self.label_2.setGeometry(QRect(250, 250, 131, 41))
-        self.label_2.setFont(font)
+        self.label_2.setGeometry(QRect(260, 250, 121, 41))
         self.pushButton = QPushButton(self.page_1)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(620, 250, 171, 41))
@@ -88,22 +80,54 @@ class Ui_MainPages(object):
         self.label_5 = QLabel(self.page_1)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(100, 270, 41, 21))
-        self.label_5.setFont(font)
         self.label_5.setTextFormat(Qt.AutoText)
         self.label = QLabel(self.page_1)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(260, 10, 121, 31))
-        self.label.setFont(font)
         self.listWidget_2 = QListWidget(self.page_1)
         self.listWidget_2.setObjectName(u"listWidget_2")
         self.listWidget_2.setGeometry(QRect(30, 180, 181, 81))
-        font1 = QFont()
-        font1.setPointSize(10)
-        self.listWidget_2.setFont(font1)
+        font = QFont()
+        font.setPointSize(10)
+        self.listWidget_2.setFont(font)
         self.pages.addWidget(self.page_1)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.page_2.setStyleSheet(u"background:lightgreen")
+        self.tableView = QTableView(self.page_2)
+        self.tableView.setObjectName(u"tableView")
+        self.tableView.setGeometry(QRect(20, 20, 561, 311))
+        self.lineEdit_2 = QLineEdit(self.page_2)
+        self.lineEdit_2.setObjectName(u"lineEdit_2")
+        self.lineEdit_2.setGeometry(QRect(30, 370, 211, 21))
+        self.label_7 = QLabel(self.page_2)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setGeometry(QRect(30, 350, 49, 16))
+        self.label_8 = QLabel(self.page_2)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setGeometry(QRect(30, 400, 49, 16))
+        self.label_9 = QLabel(self.page_2)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setGeometry(QRect(600, 50, 91, 16))
+        self.lcdNumber = QLCDNumber(self.page_2)
+        self.lcdNumber.setObjectName(u"lcdNumber")
+        self.lcdNumber.setGeometry(QRect(600, 80, 64, 23))
+        self.label_10 = QLabel(self.page_2)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(600, 130, 161, 20))
+        self.lcdNumber_2 = QLCDNumber(self.page_2)
+        self.lcdNumber_2.setObjectName(u"lcdNumber_2")
+        self.lcdNumber_2.setGeometry(QRect(600, 180, 64, 23))
+        self.pushButton_2 = QPushButton(self.page_2)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setGeometry(QRect(290, 370, 75, 24))
+        self.lineEdit_3 = QLineEdit(self.page_2)
+        self.lineEdit_3.setObjectName(u"lineEdit_3")
+        self.lineEdit_3.setGeometry(QRect(390, 370, 221, 21))
+        self.line = QFrame(self.page_2)
+        self.line.setObjectName(u"line")
+        self.line.setGeometry(QRect(30, 410, 751, 16))
+        self.line.setFrameShape(QFrame.HLine)
+        self.line.setFrameShadow(QFrame.Sunken)
         self.pages.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
@@ -112,9 +136,9 @@ class Ui_MainPages(object):
         self.page_3_layout.setObjectName(u"page_3_layout")
         self.empty_page_label = QLabel(self.page_3)
         self.empty_page_label.setObjectName(u"empty_page_label")
-        font2 = QFont()
-        font2.setPointSize(16)
-        self.empty_page_label.setFont(font2)
+        font1 = QFont()
+        font1.setPointSize(16)
+        self.empty_page_label.setFont(font1)
         self.empty_page_label.setAlignment(Qt.AlignCenter)
 
         self.page_3_layout.addWidget(self.empty_page_label)
@@ -123,7 +147,7 @@ class Ui_MainPages(object):
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(2)
+        self.pages.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainPages)
@@ -144,6 +168,11 @@ class Ui_MainPages(object):
         self.label_6.setText(QCoreApplication.translate("MainPages", u"Using:", None))
         self.label_5.setText(QCoreApplication.translate("MainPages", u"Info", None))
         self.label.setText(QCoreApplication.translate("MainPages", u"Input Text", None))
+        self.label_7.setText(QCoreApplication.translate("MainPages", u"Search", None))
+        self.label_8.setText("")
+        self.label_9.setText(QCoreApplication.translate("MainPages", u"saved Passwords", None))
+        self.label_10.setText(QCoreApplication.translate("MainPages", u"Number of strong passwords", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainPages", u"Generate", None))
         self.empty_page_label.setText(QCoreApplication.translate("MainPages", u"Empty Page", None))
     # retranslateUi
 

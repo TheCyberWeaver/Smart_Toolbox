@@ -2,16 +2,16 @@
     "app_name": "Smartcoder",
     "version" : "v2.1.0",
     "copyright" : "By: Thomas Lu",
-    "year" : 2021,
-    "theme_name" : "default",
+    "year" : 2022,
+    "theme_name" : "bright_theme",
     "custom_title_bar": true,
     "startup_size": [
-        960,
-        600
+        900,
+        625
     ],
     "minimum_size": [
-        960,
-        600
+        900,
+        625
     ],
     "lef_menu_size" : {
         "minimum" : 50,
@@ -28,8 +28,8 @@
     },
     "time_animation" : 500,
     "font" : {
-        "family" : "Segoe UI",
-        "title_size" : 10,
-        "text_size" : 9
+        "family" : "Impact",
+        "title_size" : 14,
+        "text_size" : 14
     }
 }

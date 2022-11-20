@@ -3,10 +3,9 @@ import hashlib
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import *
+from PySide6.QtGui import *
 from .methods import *
-
-import qdarkstyle
-from qdarkstyle.light.palette import LightPalette
+from gui.core.json_settings import Settings
 from gui.uis.pages.main_pages import Ui_MainPages
 class Transcoderpage(QMainWindow):
 
@@ -14,6 +13,9 @@ class Transcoderpage(QMainWindow):
         super().__init__()
         self.Methods_manager = CoderPluginManager()
         self.Methods_manager.loadPlugins()
+
+        settings = Settings()
+        self.settings = settings.items
 
         # print(self.Methods_manager.getPluginsName())
         self.ui = loadpage
@@ -43,8 +45,16 @@ class Transcoderpage(QMainWindow):
         self.ui.listWidget_2.itemDoubleClicked.connect(self.setMethodMember)
         # 连接start和convert按钮
         self.ui.pushButton.clicked.connect(self.ManualConversion)
-        #修复文字背景为白色的问题
-        self.ui.label_2.setStyleSheet("""background-color: transparent;""")
+        #修复Label字体不统一的问题
+        font = QFont()
+        font.setFamilies([u"Segoe UI Black"])
+        self.ui.label_2.setFont(font)
+        self.ui.page_1.setStyleSheet("QLabel{font-size: 14pt;"
+                                     "font-family: \"Impact\"}")
+
+        #self.ui.page_1.setStyleSheet(f'''
+        #                            font: {self.settings["font"]["text_size"]}pt "{self.settings["font"]["family"]}";
+        #                        ''')
         # 默认方式
         self.ui.encode.setChecked(True)
 
@@ -142,7 +152,7 @@ if __name__ == '__main__':
     app = QApplication(sys.argv)
     window = Transcoderpage()
 
-    app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6'))
+
     #app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
     window.show()  # 显示窗口
 

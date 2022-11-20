@@ -61,16 +61,16 @@ class SetupMainWindow:
         {
             "btn_icon" : "icon_home.svg",
             "btn_id" : "btn_home",
-            "btn_text" : "Home",
-            "btn_tooltip" : "Home page",
+            "btn_text" : "Transcoder",
+            "btn_tooltip" : "Open Transcoder",
             "show_top" : True,
             "is_active" : True
         },
         {
             "btn_icon": "icon_emoticons.svg",
             "btn_id": "btn_page2",
-            "btn_text": "Page2",
-            "btn_tooltip": "Open Page2",
+            "btn_text": "Password Manager",
+            "btn_tooltip": "Open Password Manager",
             "show_top": True,
             "is_active": False
         },

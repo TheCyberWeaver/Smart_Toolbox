@@ -18,7 +18,6 @@ from gui.core.json_settings import Settings
 # MAIN WINDOW
 from gui.uis.windows.main_window import *
 
-import qdarkstyle
 # IMPORT PY ONE DARK WIDGETS
 from gui.widgets import *
 
@@ -27,8 +26,8 @@ from Transcoder.methods import *
 from Transcoder.main import *
 
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
-os.environ["QT_FONT_DPI"] = "96"
-os.environ["QT_SCALE_FACTOR"] = "1.25"
+#os.environ["QT_FONT_DPI"] = "96"
+os.environ["QT_SCALE_FACTOR"] = "1"
 # IF IS 4K MONITOR ENABLE 'os.environ["QT_SCALE_FACTOR"] = "2"'
 
 # MAIN WINDOW
@@ -54,6 +53,10 @@ class MainWindow(QMainWindow):
 
         #setup transcoder
         self.Tanscoder=Transcoderpage(self.ui.load_pages)
+        font = QFont()
+        font.setFamilies([u"Segoe UI Black"])
+        self.ui.load_pages.label_2.setFont(font)
+
 
         # SHOW MAIN WINDOW
         # ///////////////////////////////////////////////////////////////
@@ -175,7 +178,6 @@ if __name__ == "__main__":
     app = QApplication(sys.argv)
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
-
     # EXEC APP
     # ///////////////////////////////////////////////////////////////
     sys.exit(app.exec())
