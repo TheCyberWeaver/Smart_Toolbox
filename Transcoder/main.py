@@ -51,7 +51,7 @@ class Transcoderpage(QMainWindow):
         font = QFont()
         font.setFamilies([u"Segoe UI Black"])
         self.ui.label_2.setFont(font)
-        self.ui.page_1.setStyleSheet("QLabel{font-size: 14pt;"
+        self.ui.page_1.setStyleSheet("QLabel{font-size: 18pt;"
                                      "font-family: \"Impact\"}")
         # 处理搜索清除按钮
         self.ui.ClearButton.clicked.connect(self.ui.lineEdit.clear)

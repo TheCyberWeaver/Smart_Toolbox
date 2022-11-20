@@ -3,7 +3,7 @@
     "version" : "v2.1.0",
     "copyright" : "By: Thomas Lu",
     "year" : 2022,
-    "theme_name" : "bright_theme",
+    "theme_name" : "test",
     "custom_title_bar": true,
     "startup_size": [
         900,

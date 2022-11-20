@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_pagesamLXZM.ui'
+## Form generated from reading UI file 'main_pagesMnnHbt.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -44,6 +44,7 @@ class Ui_MainPages(object):
         self.input_text_edit = QPlainTextEdit(self.page_1)
         self.input_text_edit.setObjectName(u"input_text_edit")
         self.input_text_edit.setGeometry(QRect(260, 50, 531, 131))
+        self.input_text_edit.setBackgroundVisible(False)
         self.lineEdit = QLineEdit(self.page_1)
         self.lineEdit.setObjectName(u"lineEdit")
         self.lineEdit.setGeometry(QRect(80, 10, 131, 31))
@@ -58,7 +59,7 @@ class Ui_MainPages(object):
         self.input_text_edit_2.setGeometry(QRect(310, 200, 481, 31))
         self.label_3 = QLabel(self.page_1)
         self.label_3.setObjectName(u"label_3")
-        self.label_3.setGeometry(QRect(10, 10, 71, 28))
+        self.label_3.setGeometry(QRect(0, 10, 81, 28))
         self.encode = QRadioButton(self.page_1)
         self.encode.setObjectName(u"encode")
         self.encode.setGeometry(QRect(400, 250, 91, 41))
@@ -76,7 +77,7 @@ class Ui_MainPages(object):
         self.pushButton.setGeometry(QRect(620, 250, 171, 41))
         self.label_6 = QLabel(self.page_1)
         self.label_6.setObjectName(u"label_6")
-        self.label_6.setGeometry(QRect(410, 10, 49, 31))
+        self.label_6.setGeometry(QRect(410, 10, 171, 31))
         self.label_5 = QLabel(self.page_1)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(100, 270, 41, 21))

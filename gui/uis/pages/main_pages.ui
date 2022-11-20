@@ -74,6 +74,9 @@
      <property name="plainText">
       <string/>
      </property>
+     <property name="backgroundVisible">
+      <bool>false</bool>
+     </property>
     </widget>
     <widget class="QLineEdit" name="lineEdit">
      <property name="geometry">
@@ -124,9 +127,9 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>0</x>
        <y>10</y>
-       <width>71</width>
+       <width>81</width>
        <height>28</height>
       </rect>
      </property>
@@ -204,7 +207,7 @@
       <rect>
        <x>410</x>
        <y>10</y>
-       <width>49</width>
+       <width>171</width>
        <height>31</height>
       </rect>
      </property>
