@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_pagesMnnHbt.ui'
+## Form generated from reading UI file 'main_pageshYhudg.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -15,20 +15,21 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGroupBox,
-    QHeaderView, QLCDNumber, QLabel, QLineEdit,
-    QListWidget, QListWidgetItem, QPlainTextEdit, QPushButton,
-    QRadioButton, QSizePolicy, QStackedWidget, QTableView,
-    QTextEdit, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QGroupBox, QHBoxLayout,
+    QHeaderView, QLabel, QLineEdit, QListWidget,
+    QListWidgetItem, QPlainTextEdit, QPushButton, QRadioButton,
+    QScrollArea, QSizePolicy, QStackedWidget, QTableWidget,
+    QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
 
 class Ui_MainPages(object):
     def setupUi(self, MainPages):
         if not MainPages.objectName():
             MainPages.setObjectName(u"MainPages")
-        MainPages.resize(803, 511)
+        MainPages.resize(803, 543)
+        self.verticalLayout_2 = QVBoxLayout(MainPages)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.pages = QStackedWidget(MainPages)
         self.pages.setObjectName(u"pages")
-        self.pages.setGeometry(QRect(0, 0, 801, 511))
         self.page_1 = QWidget()
         self.page_1.setObjectName(u"page_1")
         self.groupBox = QGroupBox(self.page_1)
@@ -97,41 +98,67 @@ class Ui_MainPages(object):
         self.pages.addWidget(self.page_1)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.tableView = QTableView(self.page_2)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(20, 20, 561, 311))
-        self.lineEdit_2 = QLineEdit(self.page_2)
-        self.lineEdit_2.setObjectName(u"lineEdit_2")
-        self.lineEdit_2.setGeometry(QRect(30, 370, 211, 21))
-        self.label_7 = QLabel(self.page_2)
-        self.label_7.setObjectName(u"label_7")
-        self.label_7.setGeometry(QRect(30, 350, 49, 16))
-        self.label_8 = QLabel(self.page_2)
-        self.label_8.setObjectName(u"label_8")
-        self.label_8.setGeometry(QRect(30, 400, 49, 16))
-        self.label_9 = QLabel(self.page_2)
-        self.label_9.setObjectName(u"label_9")
-        self.label_9.setGeometry(QRect(600, 50, 91, 16))
-        self.lcdNumber = QLCDNumber(self.page_2)
-        self.lcdNumber.setObjectName(u"lcdNumber")
-        self.lcdNumber.setGeometry(QRect(600, 80, 64, 23))
-        self.label_10 = QLabel(self.page_2)
-        self.label_10.setObjectName(u"label_10")
-        self.label_10.setGeometry(QRect(600, 130, 161, 20))
-        self.lcdNumber_2 = QLCDNumber(self.page_2)
-        self.lcdNumber_2.setObjectName(u"lcdNumber_2")
-        self.lcdNumber_2.setGeometry(QRect(600, 180, 64, 23))
-        self.pushButton_2 = QPushButton(self.page_2)
+        self.vboxLayout = QVBoxLayout(self.page_2)
+        self.vboxLayout.setObjectName(u"vboxLayout")
+        self.scrollArea = QScrollArea(self.page_2)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollAreaWidgetContents = QWidget()
+        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
+        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 765, 505))
+        self.verticalLayoutWidget = QWidget(self.scrollAreaWidgetContents)
+        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
+        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 761, 471))
+        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.title_label = QLabel(self.verticalLayoutWidget)
+        self.title_label.setObjectName(u"title_label")
+        self.title_label.setMaximumSize(QSize(16777215, 40))
+        font1 = QFont()
+        font1.setPointSize(16)
+        self.title_label.setFont(font1)
+        self.title_label.setStyleSheet(u"font-size: 16pt")
+        self.title_label.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_3.addWidget(self.title_label)
+
+        self.description_label = QLabel(self.verticalLayoutWidget)
+        self.description_label.setObjectName(u"description_label")
+        self.description_label.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
+        self.description_label.setWordWrap(True)
+
+        self.verticalLayout_3.addWidget(self.description_label)
+
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.tableWidget = QTableWidget(self.verticalLayoutWidget)
+        self.tableWidget.setObjectName(u"tableWidget")
+
+        self.horizontalLayout_3.addWidget(self.tableWidget)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
+
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.pushButton_2 = QPushButton(self.verticalLayoutWidget)
         self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setGeometry(QRect(290, 370, 75, 24))
-        self.lineEdit_3 = QLineEdit(self.page_2)
-        self.lineEdit_3.setObjectName(u"lineEdit_3")
-        self.lineEdit_3.setGeometry(QRect(390, 370, 221, 21))
-        self.line = QFrame(self.page_2)
-        self.line.setObjectName(u"line")
-        self.line.setGeometry(QRect(30, 410, 751, 16))
-        self.line.setFrameShape(QFrame.HLine)
-        self.line.setFrameShadow(QFrame.Sunken)
+
+        self.horizontalLayout_4.addWidget(self.pushButton_2)
+
+        self.textEdit = QTextEdit(self.verticalLayoutWidget)
+        self.textEdit.setObjectName(u"textEdit")
+
+        self.horizontalLayout_4.addWidget(self.textEdit)
+
+
+        self.verticalLayout_3.addLayout(self.horizontalLayout_4)
+
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+
+        self.vboxLayout.addWidget(self.scrollArea)
+
         self.pages.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
@@ -140,8 +167,6 @@ class Ui_MainPages(object):
         self.page_3_layout.setObjectName(u"page_3_layout")
         self.empty_page_label = QLabel(self.page_3)
         self.empty_page_label.setObjectName(u"empty_page_label")
-        font1 = QFont()
-        font1.setPointSize(16)
         self.empty_page_label.setFont(font1)
         self.empty_page_label.setAlignment(Qt.AlignCenter)
 
@@ -149,9 +174,12 @@ class Ui_MainPages(object):
 
         self.pages.addWidget(self.page_3)
 
+        self.verticalLayout_2.addWidget(self.pages)
+
+
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(0)
+        self.pages.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainPages)
@@ -173,11 +201,10 @@ class Ui_MainPages(object):
         self.label_5.setText(QCoreApplication.translate("MainPages", u"Info", None))
         self.label.setText(QCoreApplication.translate("MainPages", u"Input Text", None))
         self.ClearButton.setText(QCoreApplication.translate("MainPages", u"X", None))
-        self.label_7.setText(QCoreApplication.translate("MainPages", u"Search", None))
-        self.label_8.setText("")
-        self.label_9.setText(QCoreApplication.translate("MainPages", u"saved Passwords", None))
-        self.label_10.setText(QCoreApplication.translate("MainPages", u"Number of strong passwords", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainPages", u"Generate", None))
+        self.title_label.setText(QCoreApplication.translate("MainPages", u"Custom Widgets Page", None))
+        self.description_label.setText(QCoreApplication.translate("MainPages", u"Here will be all the custom widgets, they will be added over time on this page.\n"
+"I will try to always record a new tutorial when adding a new Widget and updating the project on Patreon before launching on GitHub and GitHub after the public release.", None))
+        self.pushButton_2.setText(QCoreApplication.translate("MainPages", u"PushButton", None))
         self.empty_page_label.setText(QCoreApplication.translate("MainPages", u"Empty Page", None))
     # retranslateUi
 
