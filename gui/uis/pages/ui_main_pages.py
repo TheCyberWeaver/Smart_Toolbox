@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_pageshYhudg.ui'
+## Form generated from reading UI file 'main_pages.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.0
 ##
@@ -16,18 +16,18 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QGroupBox, QHBoxLayout,
-    QHeaderView, QLabel, QLineEdit, QListWidget,
-    QListWidgetItem, QPlainTextEdit, QPushButton, QRadioButton,
-    QScrollArea, QSizePolicy, QStackedWidget, QTableWidget,
-    QTableWidgetItem, QTextEdit, QVBoxLayout, QWidget)
+    QLabel, QLineEdit, QListWidget, QListWidgetItem,
+    QPlainTextEdit, QPushButton, QRadioButton, QScrollArea,
+    QSizePolicy, QStackedWidget, QTextEdit, QVBoxLayout,
+    QWidget)
 
 class Ui_MainPages(object):
     def setupUi(self, MainPages):
         if not MainPages.objectName():
             MainPages.setObjectName(u"MainPages")
         MainPages.resize(803, 543)
-        self.verticalLayout_2 = QVBoxLayout(MainPages)
-        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.verticalLayout_3 = QVBoxLayout(MainPages)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.pages = QStackedWidget(MainPages)
         self.pages.setObjectName(u"pages")
         self.page_1 = QWidget()
@@ -52,6 +52,7 @@ class Ui_MainPages(object):
         self.label_4 = QLabel(self.page_1)
         self.label_4.setObjectName(u"label_4")
         self.label_4.setGeometry(QRect(260, 200, 41, 31))
+        self.label_4.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.output_text_edit = QTextEdit(self.page_1)
         self.output_text_edit.setObjectName(u"output_text_edit")
         self.output_text_edit.setGeometry(QRect(260, 300, 531, 111))
@@ -61,6 +62,7 @@ class Ui_MainPages(object):
         self.label_3 = QLabel(self.page_1)
         self.label_3.setObjectName(u"label_3")
         self.label_3.setGeometry(QRect(0, 10, 81, 28))
+        self.label_3.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.encode = QRadioButton(self.page_1)
         self.encode.setObjectName(u"encode")
         self.encode.setGeometry(QRect(400, 250, 91, 41))
@@ -73,19 +75,23 @@ class Ui_MainPages(object):
         self.label_2 = QLabel(self.page_1)
         self.label_2.setObjectName(u"label_2")
         self.label_2.setGeometry(QRect(260, 250, 121, 41))
+        self.label_2.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.pushButton = QPushButton(self.page_1)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setGeometry(QRect(620, 250, 171, 41))
         self.label_6 = QLabel(self.page_1)
         self.label_6.setObjectName(u"label_6")
         self.label_6.setGeometry(QRect(410, 10, 171, 31))
+        self.label_6.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.label_5 = QLabel(self.page_1)
         self.label_5.setObjectName(u"label_5")
         self.label_5.setGeometry(QRect(100, 270, 41, 21))
+        self.label_5.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.label_5.setTextFormat(Qt.AutoText)
         self.label = QLabel(self.page_1)
         self.label.setObjectName(u"label")
         self.label.setGeometry(QRect(260, 10, 121, 31))
+        self.label.setStyleSheet(u"font: 700 14pt \"Segoe Print\";")
         self.listWidget_2 = QListWidget(self.page_1)
         self.listWidget_2.setObjectName(u"listWidget_2")
         self.listWidget_2.setGeometry(QRect(30, 180, 181, 81))
@@ -98,83 +104,87 @@ class Ui_MainPages(object):
         self.pages.addWidget(self.page_1)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.vboxLayout = QVBoxLayout(self.page_2)
-        self.vboxLayout.setObjectName(u"vboxLayout")
-        self.scrollArea = QScrollArea(self.page_2)
-        self.scrollArea.setObjectName(u"scrollArea")
-        self.scrollArea.setWidgetResizable(True)
-        self.scrollAreaWidgetContents = QWidget()
-        self.scrollAreaWidgetContents.setObjectName(u"scrollAreaWidgetContents")
-        self.scrollAreaWidgetContents.setGeometry(QRect(0, 0, 765, 505))
-        self.verticalLayoutWidget = QWidget(self.scrollAreaWidgetContents)
-        self.verticalLayoutWidget.setObjectName(u"verticalLayoutWidget")
-        self.verticalLayoutWidget.setGeometry(QRect(0, 0, 761, 471))
-        self.verticalLayout_3 = QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
-        self.verticalLayout_3.setContentsMargins(0, 0, 0, 0)
-        self.title_label = QLabel(self.verticalLayoutWidget)
-        self.title_label.setObjectName(u"title_label")
-        self.title_label.setMaximumSize(QSize(16777215, 40))
-        font1 = QFont()
-        font1.setPointSize(16)
-        self.title_label.setFont(font1)
-        self.title_label.setStyleSheet(u"font-size: 16pt")
-        self.title_label.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_2 = QVBoxLayout(self.page_2)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.label_8 = QLabel(self.page_2)
+        self.label_8.setObjectName(u"label_8")
+        self.label_8.setMaximumSize(QSize(16777215, 32))
+        self.label_8.setStyleSheet(u"font: 700 18pt \"Segoe Print\";")
+        self.label_8.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.title_label)
+        self.verticalLayout_2.addWidget(self.label_8)
 
-        self.description_label = QLabel(self.verticalLayoutWidget)
-        self.description_label.setObjectName(u"description_label")
-        self.description_label.setAlignment(Qt.AlignHCenter|Qt.AlignTop)
-        self.description_label.setWordWrap(True)
+        self.horizontalLayout_6 = QHBoxLayout()
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.label_9 = QLabel(self.page_2)
+        self.label_9.setObjectName(u"label_9")
+        self.label_9.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_9.setAlignment(Qt.AlignCenter)
 
-        self.verticalLayout_3.addWidget(self.description_label)
+        self.horizontalLayout_6.addWidget(self.label_9)
+
+        self.label_7 = QLabel(self.page_2)
+        self.label_7.setObjectName(u"label_7")
+        self.label_7.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_7.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_6.addWidget(self.label_7)
+
+        self.label_10 = QLabel(self.page_2)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_10.setAlignment(Qt.AlignLeading|Qt.AlignLeft|Qt.AlignVCenter)
+
+        self.horizontalLayout_6.addWidget(self.label_10)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_6)
+
+        self.horizontalLayout = QHBoxLayout()
+        self.horizontalLayout.setObjectName(u"horizontalLayout")
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.horizontalLayout_3 = QHBoxLayout()
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.tableWidget = QTableWidget(self.verticalLayoutWidget)
-        self.tableWidget.setObjectName(u"tableWidget")
 
-        self.horizontalLayout_3.addWidget(self.tableWidget)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_3)
-
-        self.horizontalLayout_4 = QHBoxLayout()
-        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.pushButton_2 = QPushButton(self.verticalLayoutWidget)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-
-        self.horizontalLayout_4.addWidget(self.pushButton_2)
-
-        self.textEdit = QTextEdit(self.verticalLayoutWidget)
-        self.textEdit.setObjectName(u"textEdit")
-
-        self.horizontalLayout_4.addWidget(self.textEdit)
-
-
-        self.verticalLayout_3.addLayout(self.horizontalLayout_4)
-
-        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
-
-        self.vboxLayout.addWidget(self.scrollArea)
+        self.verticalLayout_2.addLayout(self.horizontalLayout_3)
 
         self.pages.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
-        self.page_3.setStyleSheet(u"background:black")
-        self.page_3_layout = QVBoxLayout(self.page_3)
-        self.page_3_layout.setObjectName(u"page_3_layout")
-        self.empty_page_label = QLabel(self.page_3)
-        self.empty_page_label.setObjectName(u"empty_page_label")
-        self.empty_page_label.setFont(font1)
-        self.empty_page_label.setAlignment(Qt.AlignCenter)
+        self.verticalLayout_5 = QVBoxLayout(self.page_3)
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+        self.scrollArea_2 = QScrollArea(self.page_3)
+        self.scrollArea_2.setObjectName(u"scrollArea_2")
+        self.scrollArea_2.setWidgetResizable(True)
+        self.scrollAreaWidgetContents_3 = QWidget()
+        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
+        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 765, 505))
+        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.horizontalLayout_4 = QHBoxLayout()
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
 
-        self.page_3_layout.addWidget(self.empty_page_label)
+        self.verticalLayout.addLayout(self.horizontalLayout_4)
+
+        self.horizontalLayout_5 = QHBoxLayout()
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
+
+        self.verticalLayout.addLayout(self.horizontalLayout_5)
+
+        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
+
+        self.verticalLayout_5.addWidget(self.scrollArea_2)
 
         self.pages.addWidget(self.page_3)
 
-        self.verticalLayout_2.addWidget(self.pages)
+        self.verticalLayout_3.addWidget(self.pages)
 
 
         self.retranslateUi(MainPages)
@@ -201,10 +211,9 @@ class Ui_MainPages(object):
         self.label_5.setText(QCoreApplication.translate("MainPages", u"Info", None))
         self.label.setText(QCoreApplication.translate("MainPages", u"Input Text", None))
         self.ClearButton.setText(QCoreApplication.translate("MainPages", u"X", None))
-        self.title_label.setText(QCoreApplication.translate("MainPages", u"Custom Widgets Page", None))
-        self.description_label.setText(QCoreApplication.translate("MainPages", u"Here will be all the custom widgets, they will be added over time on this page.\n"
-"I will try to always record a new tutorial when adding a new Widget and updating the project on Patreon before launching on GitHub and GitHub after the public release.", None))
-        self.pushButton_2.setText(QCoreApplication.translate("MainPages", u"PushButton", None))
-        self.empty_page_label.setText(QCoreApplication.translate("MainPages", u"Empty Page", None))
+        self.label_8.setText(QCoreApplication.translate("MainPages", u"Password Manager", None))
+        self.label_9.setText(QCoreApplication.translate("MainPages", u"number count", None))
+        self.label_7.setText(QCoreApplication.translate("MainPages", u"passwords strength", None))
+        self.label_10.setText(QCoreApplication.translate("MainPages", u"leaked passwords", None))
     # retranslateUi
 

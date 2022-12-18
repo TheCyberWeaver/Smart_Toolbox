@@ -43,7 +43,9 @@ from gui.uis.windows.main_window.ui_main import *
 # MAIN FUNCTIONS 
 # ///////////////////////////////////////////////////////////////
 from . functions_main_window import *
-
+from gui.uis.windows.main_window import *
+from gui.core.functions import Functions
+from PasswordManager.main import *
 # PY WINDOW
 # ///////////////////////////////////////////////////////////////
 class SetupMainWindow:
@@ -127,8 +129,10 @@ class SetupMainWindow:
     def setup_gui(self):
         # APP TITLE
         # ///////////////////////////////////////////////////////////////
+
         self.setWindowTitle(self.settings["app_name"])
-        
+
+
         # REMOVE TITLE BAR
         # ///////////////////////////////////////////////////////////////
         if self.settings["custom_title_bar"]:
@@ -259,35 +263,36 @@ class SetupMainWindow:
         # PAGE 2
         # CIRCULAR PROGRESS 1
         self.circular_progress_1 = PyCircularProgress(
-            value = 80,
-            progress_color = self.themes["app_color"]["context_color"],
-            text_color = self.themes["app_color"]["text_title"],
+            value = 10,
+            progress_color = self.themes["app_color"]["pink"],
+            text_color = self.themes["app_color"]["context_color"],
             font_size = 14,
             bg_color = self.themes["app_color"]["dark_four"]
         )
-        self.circular_progress_1.setFixedSize(200,200)
+        self.circular_progress_1.setFixedSize(100,100)
 
         # CIRCULAR PROGRESS 2
         self.circular_progress_2 = PyCircularProgress(
             value = 45,
-            progress_width = 4,
+            progress_width = 10,
             progress_color = self.themes["app_color"]["context_color"],
             text_color = self.themes["app_color"]["context_color"],
             font_size = 14,
             bg_color = self.themes["app_color"]["bg_three"]
         )
-        self.circular_progress_2.setFixedSize(160,160)
+        self.circular_progress_2.setFixedSize(150,150)
 
         # CIRCULAR PROGRESS 3
         self.circular_progress_3 = PyCircularProgress(
             value = 75,
-            progress_width = 2,
+            progress_width = 10,
             progress_color = self.themes["app_color"]["pink"],
-            text_color = self.themes["app_color"]["white"],
+            text_color = self.themes["app_color"]["context_color"],
             font_size = 14,
             bg_color = self.themes["app_color"]["bg_three"]
         )
-        self.circular_progress_3.setFixedSize(140,140)
+        self.circular_progress_3.setFixedSize(100,100)
+
 
         # PY SLIDER 1
         self.vertical_slider_1 = PySlider(
@@ -461,7 +466,7 @@ class SetupMainWindow:
             scroll_bar_btn_color = self.themes["app_color"]["dark_four"],
             context_color = self.themes["app_color"]["context_color"]
         )
-        self.table_widget.setColumnCount(3)
+        self.table_widget.setColumnCount(4)
         self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table_widget.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.table_widget.setSelectionBehavior(QAbstractItemView.SelectRows)
@@ -473,17 +478,23 @@ class SetupMainWindow:
 
         self.column_2 = QTableWidgetItem()
         self.column_2.setTextAlignment(Qt.AlignCenter)
-        self.column_2.setText("NICK")
+        self.column_2.setText("User")
 
         self.column_3 = QTableWidgetItem()
         self.column_3.setTextAlignment(Qt.AlignCenter)
         self.column_3.setText("PASS")
 
+        self.column_4 = QTableWidgetItem()
+        self.column_4.setTextAlignment(Qt.AlignCenter)
+        self.column_4.setText("Other")
+
         # Set column
         self.table_widget.setHorizontalHeaderItem(0, self.column_1)
         self.table_widget.setHorizontalHeaderItem(1, self.column_2)
         self.table_widget.setHorizontalHeaderItem(2, self.column_3)
+        self.table_widget.setHorizontalHeaderItem(3, self.column_4)
 
+        """
         for x in range(10):
             row_number = self.table_widget.rowCount()
             self.table_widget.insertRow(row_number) # Insert row
@@ -494,8 +505,17 @@ class SetupMainWindow:
             self.pass_text.setText("12345" + str(x))
             self.table_widget.setItem(row_number, 2, self.pass_text) # Add pass
             self.table_widget.setRowHeight(row_number, 22)
+        """
 
+        # ADD WIDGETS
+        self.ui.load_pages.horizontalLayout.addWidget(self.circular_progress_1)
+        self.ui.load_pages.horizontalLayout.addWidget(self.circular_progress_2)
+        self.ui.load_pages.horizontalLayout.addWidget(self.circular_progress_3)
 
+        self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_1)
+        self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_2)
+
+        self.ui.load_pages.horizontalLayout_3.addWidget(self.table_widget)
         # RIGHT COLUMN
         # ///////////////////////////////////////////////////////////////
 
@@ -538,7 +558,7 @@ class SetupMainWindow:
         # ///////////////////////////////////////////////////////////////
         # END - EXAMPLE CUSTOM WIDGETS
         # ///////////////////////////////////////////////////////////////
-
+        self.Passwordmanager = Passwordmanager(self)
     # RESIZE GRIPS AND CHANGE POSITION
     # Resize or change position when window is resized
     # ///////////////////////////////////////////////////////////////

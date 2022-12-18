@@ -3,7 +3,7 @@
     "version" : "v2.1.0",
     "copyright" : "By: Thomas Lu",
     "year" : 2022,
-    "theme_name" : "test",
+    "theme_name" : "default",
     "custom_title_bar": true,
     "startup_size": [
         900,
@@ -28,7 +28,7 @@
     },
     "time_animation" : 500,
     "font" : {
-        "family" : "Impact",
+        "family" : "Segoe UI",
         "title_size" : 14,
         "text_size" : 14
     }

@@ -40,7 +40,7 @@ from .setup_main_window import *
 
 # IMPORT MAIN WINDOW PAGES / AND SIDE BOXES FOR APP
 # ///////////////////////////////////////////////////////////////
-from gui.uis.pages.main_pages import Ui_MainPages
+from gui.uis.pages.ui_main_pages import Ui_MainPages
 
 # RIGHT COLUMN
 # ///////////////////////////////////////////////////////////////
@@ -236,9 +236,10 @@ class UI_MainWindow(object):
         self.load_pages = Ui_MainPages()
         self.load_pages.setupUi(self.content_area_left_frame)
         font=QFont()
-        font.setFamilies([u"Segoe UI Black"])
+        font.setFamilies([u"Segoe UI"])
         font.setPointSize(24)
         self.load_pages.page_1.setFont(font)
+
         # RIGHT BAR
         self.right_column_frame = QFrame()
         self.right_column_frame.setMinimumWidth(self.settings["right_column_size"]["minimum"])

@@ -13,6 +13,7 @@ from qt_core import *
 
 # IMPORT SETTINGS
 from gui.core.json_settings import Settings
+from gui.core.functions import Functions
 
 # IMPORT PY ONE DARK WINDOWS
 # MAIN WINDOW
@@ -52,10 +53,12 @@ class MainWindow(QMainWindow):
         SetupMainWindow.setup_gui(self)
 
         #setup transcoder
-        self.Tanscoder=Transcoderpage(self.ui.load_pages)
-        font = QFont()
-        font.setFamilies([u"Segoe UI Black"])
-        self.ui.load_pages.label_2.setFont(font)
+        self.Transcoder=Transcoderpage(self.ui.load_pages)
+        #font = QFont()
+        #font.setFamilies([u"Segoe UI Black"])
+        #self.ui.load_pages.label_2.setFont(font)
+
+
 
 
         # SHOW MAIN WINDOW
