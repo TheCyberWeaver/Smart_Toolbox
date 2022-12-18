@@ -2,7 +2,7 @@
 
 A smartcoder
 
-version 2.1.0
+version 2.2.1
 A simple decoder and encoder that transform a string
 
 current methods:
