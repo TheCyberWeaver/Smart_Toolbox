@@ -350,10 +350,10 @@ class SetupMainWindow:
 
         # ICON BUTTON 1
         self.icon_button_1 = PyIconButton(
-            icon_path = Functions.set_svg_icon("icon_heart.svg"),
+            icon_path = Functions.set_svg_icon("icon_refresh.svg"),
             parent = self,
             app_parent = self.ui.central_widget,
-            tooltip_text = "Icon button - Heart",
+            tooltip_text = "Icon button - refresh",
             width = 40,
             height = 40,
             radius = 20,
@@ -366,6 +366,7 @@ class SetupMainWindow:
             bg_color_hover = self.themes["app_color"]["dark_three"],
             bg_color_pressed = self.themes["app_color"]["pink"]
         )
+
 
         # ICON BUTTON 2
         self.icon_button_2 = PyIconButton(
@@ -408,29 +409,30 @@ class SetupMainWindow:
 
         # PUSH BUTTON 1
         self.push_button_1 = PyPushButton(
-            text = "da",
+            text = "SAVE",
             radius  =8,
             color = self.themes["app_color"]["text_foreground"],
             bg_color = self.themes["app_color"]["dark_one"],
             bg_color_hover = self.themes["app_color"]["dark_three"],
             bg_color_pressed = self.themes["app_color"]["dark_four"]
         )
-        self.push_button_1.setMaximumHeight(40)
-        self.push_button_1.setMaximumWidth(80)
-        self.icon_2=QIcon(Functions.set_svg_icon("icon_refresh.svg"))
+        self.push_button_1.setMaximumHeight(30)
+        self.push_button_1.setMinimumWidth(200)
+        self.icon_2=QIcon(Functions.set_svg_icon("icon_save.svg"))
         self.push_button_1.setIcon(self.icon_2)
 
         # PUSH BUTTON 2
         self.push_button_2 = PyPushButton(
-            text = "Button With Icon",
+            text = "New",
             radius = 8,
             color = self.themes["app_color"]["text_foreground"],
             bg_color = self.themes["app_color"]["dark_one"],
             bg_color_hover = self.themes["app_color"]["dark_three"],
             bg_color_pressed = self.themes["app_color"]["dark_four"]
         )
-        self.icon_3 = QIcon(Functions.set_svg_icon("icon_settings.svg"))
-        self.push_button_2.setMinimumHeight(40)
+
+        self.icon_3 = QIcon(Functions.set_svg_icon("icon_add_user.svg"))
+        self.push_button_2.setMaximumHeight(30)
         self.push_button_2.setIcon(self.icon_3)
 
         # PY LINE EDIT
@@ -515,13 +517,14 @@ class SetupMainWindow:
         self.ui.load_pages.horizontalLayout.addWidget(self.circular_progress_2)
         self.ui.load_pages.horizontalLayout.addWidget(self.circular_progress_3)
 
+        self.ui.load_pages.horizontalLayout_2.addWidget(self.icon_button_1)
         self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_1)
         self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_2)
 
         self.ui.load_pages.horizontalLayout_3.addWidget(self.table_widget)
         # RIGHT COLUMN
         # ///////////////////////////////////////////////////////////////
-
+        self
         # BTN 1
         self.right_btn_1 = PyPushButton(
             text="Show Menu 2",

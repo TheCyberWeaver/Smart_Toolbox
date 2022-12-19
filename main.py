@@ -27,8 +27,8 @@ from Transcoder.methods import *
 from Transcoder.main import *
 
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
-#os.environ["QT_FONT_DPI"] = "96"
-os.environ["QT_SCALE_FACTOR"] = "1"
+os.environ["QT_FONT_DPI"] = "96"
+os.environ["QT_SCALE_FACTOR"] = "1.5"
 # IF IS 4K MONITOR ENABLE 'os.environ["QT_SCALE_FACTOR"] = "2"'
 
 # MAIN WINDOW

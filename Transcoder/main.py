@@ -14,7 +14,7 @@ class Transcoderpage(QMainWindow):
     def __init__(self, loadpage):
         super().__init__()
         self.Methods_manager = CoderPluginManager()
-        self.Methods_manager.loadPlugins()
+        self.Methods_manager.loadPlugins()      #加载所有编码插件
 
         settings = Settings()
         self.settings = settings.items
@@ -23,13 +23,13 @@ class Transcoderpage(QMainWindow):
         self.ui = loadpage
         self.uiInitiation()
 
-        self.final = ''
-        self.original = ''
-        self.key = ""
+        self.final = ''     #最终输出的字符串
+        self.original = ''  #读入的字符串
+        self.key = ""       #读入的key
         self.method = CoderInterface()
-        self.Mode = 2
+        self.Mode = 2   #当前是编码:2 还是解码:1
         self.filelist = []
-        self.outputInfo = ""
+        self.outputInfo = ""    #输出的info
 
     def uiInitiation(self):
 
@@ -48,22 +48,22 @@ class Transcoderpage(QMainWindow):
         # 连接start和convert按钮
         self.ui.pushButton.clicked.connect(self.ManualConversion)
         # 修复Label字体不统一的问题
-        font = QFont()
+        """font = QFont()
         font.setFamilies([u"Segoe UI Black"])
         self.ui.label_2.setFont(font)
         self.ui.page_1.setStyleSheet("QLabel{font-size: 18pt;"
-                                     "font-family: \"Impact\"}")
+                                     "font-family: \"Impact\"}")"""
         # 处理搜索清除按钮
         self.ui.ClearButton.clicked.connect(self.ui.lineEdit.clear)
 
         # self.ui.page_1.setStyleSheet(f'''
         #                            font: {self.settings["font"]["text_size"]}pt "{self.settings["font"]["family"]}";
         #                        ''')
-        # 默认方式
+        # 默认编码encode
         self.ui.encode.setChecked(True)
 
     def SmartConversion(self):
-        pass
+        self.ManualConversion()
 
     def ManualConversion(self):
 
@@ -77,15 +77,28 @@ class Transcoderpage(QMainWindow):
         self.Mode = self.getMode()
         # print(self.de_en,self.method)
 
-        # 判断使用什么方法
-        self.use_methods()
+        self.method._setString(self.original)
+        # 编码encode
+        if self.Mode == 2:
+            if self.method.Name == '':
+                self.final = 'Hey, select a function to encode, stupid!!!'
+            self.final = self.method.encode()
+
+        # 解码decode
+        elif self.Mode == 1:
+            if self.method.Name == '':
+                self.final = 'Hey, select a function to decode, stupid!!!'
+            self.final = self.method.decode()
+        else:
+            pass
+
         # 输出编码后的字符串
         self.output()
 
     def showInfo(self):
         text = "version:" + self.method.version + "\n\n" + self.method.Description
         self.ui.output_text_edit_2.setText(text)
-
+    #更新编码族列表
     def update_list(self):
         templist = []
         str = self.ui.lineEdit.text()
@@ -113,32 +126,17 @@ class Transcoderpage(QMainWindow):
             listWidget.addItem(str)
 
     # 输入与输出
+    #读入搜索框
     def input(self):
         self.original = self.ui.input_text_edit.toPlainText()
-
+    #读入key
     def inputKey(self):
         self.key = self.ui.input_text_edit_2.toPlainText()
-
+    #输出final string
     def output(self):
         self.ui.output_text_edit.setText(self.final)
 
-    def use_methods(self):
-
-        self.method._setString(self.original)
-        # 编码encode
-        if self.Mode == 2:
-            if self.method.Name == '':
-                self.final = 'Hey, select a function to encode, stupid!!!'
-            self.final = self.method.encode()
-
-        # 解码decode
-        elif self.Mode == 1:
-            if self.method.Name == '':
-                self.final = 'Hey, select a function to decode, stupid!!!'
-            self.final = self.method.decode()
-        else:
-            pass
-
+    #获取编码还是解码
     def getMode(self):
         if self.ui.encode.isChecked():
             return 2

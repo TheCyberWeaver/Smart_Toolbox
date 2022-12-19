@@ -13,12 +13,12 @@ class Passwordmanager(QMainWindow):
 
     def __init__(self, loadpage):
         super().__init__()
-        self.ui=loadpage
+        self.ui=loadpage    #所有setup_main_window.py的组件都被放在self.ui里
         settings = Settings()
         self.settings = settings.items
 
 
-
+        #登录数据库
         self.mydb = mysql.connector.connect(
             host="localhost",
             user="root",
@@ -37,16 +37,22 @@ class Passwordmanager(QMainWindow):
         self.uiInitiation()
 
     def uiInitiation(self):
-        self.ui.left_btn_1.clicked.connect(self.getAll())
-
+        self.ui.icon_button_1.clicked.connect(lambda: self.getAll())
+        self.ui.push_button_1.clicked.connect(lambda: self.saveAll())
+        self.ui.push_button_2.clicked.connect(lambda: self.ui.table_widget.insertRow(self.ui.table_widget.rowCount()))
     def getAll(self):
-
+        print("[Info]: fetch all data from database and refresh the table")
+        #保留表头
+        self.ui.table_widget.clearContents()
+        self.ui.table_widget.setRowCount(0)
+        #获取所有数据库信息并打印到表上
         showall = "select * from passwords"
 
         self.cursorObject.execute(showall)
 
         result = self.cursorObject.fetchall()
-        print(result)
+        #print(result)
+
         for id, name, username, password, date, other, description in result:
             row_number = self.ui.table_widget.rowCount()
             self.ui.table_widget.insertRow(row_number)  # Insert row
@@ -55,13 +61,16 @@ class Passwordmanager(QMainWindow):
             self.ui.table_widget.setItem(row_number, 2, QTableWidgetItem(password))  # Add pass
             self.ui.table_widget.setItem(row_number, 3, QTableWidgetItem(other))  # Add pass
             self.ui.table_widget.setRowHeight(row_number, 22)
+        #刷新上三条统计信息
         self.updateStatistic(result)
-
+    def saveAll(self):
+        print("[Info]: save all data to database")
+    #统计信息
     def updateStatistic(self,result):
 
 
         strength = 0
-        pawndcount=0
+        leakedcount=0
 
         f=open("Resources/All_List.txt",'r')
         leakedList=f.readlines()
@@ -71,22 +80,22 @@ class Passwordmanager(QMainWindow):
         for id, name, username, password, date, other, description in result:
             strength += self.passwordStrength(password)
             if password in savedList:
-                pawndcount += 1
+                leakedcount += 1
             else:
                 for word in leakedList:
                     if password == word.rstrip("\n"):
-                        pawndcount += 1
+                        leakedcount += 1
                         savedList.append(password)
                         break
-        print(savedList)
+        #print(savedList)
 
         percentage = int(strength / (4 * len(result)) * 100)
         self.ui.circular_progress_1.set_value(len(result))
         self.ui.circular_progress_2.set_value(percentage)
-        print(pawndcount)
-        self.ui.circular_progress_3.set_value(int(pawndcount/len(result)*100))
+        #print(leakedcount)
+        self.ui.circular_progress_3.set_value(int(leakedcount/len(result)*100))
 
-
+    #计算单条密码的复杂度
     def passwordStrength(self,str):
 
         password = str
