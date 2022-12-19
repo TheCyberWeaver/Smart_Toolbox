@@ -269,7 +269,7 @@ class SetupMainWindow:
             font_size = 14,
             bg_color = self.themes["app_color"]["dark_four"]
         )
-        self.circular_progress_1.setFixedSize(100,100)
+        self.circular_progress_1.setFixedSize(70,70)
 
         # CIRCULAR PROGRESS 2
         self.circular_progress_2 = PyCircularProgress(
@@ -280,7 +280,7 @@ class SetupMainWindow:
             font_size = 14,
             bg_color = self.themes["app_color"]["bg_three"]
         )
-        self.circular_progress_2.setFixedSize(150,150)
+        self.circular_progress_2.setFixedSize(120,120)
 
         # CIRCULAR PROGRESS 3
         self.circular_progress_3 = PyCircularProgress(
@@ -291,7 +291,7 @@ class SetupMainWindow:
             font_size = 14,
             bg_color = self.themes["app_color"]["bg_three"]
         )
-        self.circular_progress_3.setFixedSize(100,100)
+        self.circular_progress_3.setFixedSize(70,70)
 
 
         # PY SLIDER 1
@@ -353,10 +353,10 @@ class SetupMainWindow:
             icon_path = Functions.set_svg_icon("icon_refresh.svg"),
             parent = self,
             app_parent = self.ui.central_widget,
-            tooltip_text = "Icon button - refresh",
-            width = 40,
-            height = 40,
-            radius = 20,
+            tooltip_text = "Refresh - Discard Changes",
+            width = 35,
+            height = 35,
+            radius = 8,
             dark_one = self.themes["app_color"]["dark_one"],
             icon_color = self.themes["app_color"]["icon_color"],
             icon_color_hover = self.themes["app_color"]["icon_hover"],
@@ -435,6 +435,20 @@ class SetupMainWindow:
         self.push_button_2.setMaximumHeight(30)
         self.push_button_2.setIcon(self.icon_3)
 
+        # PUSH BUTTON 3
+        self.push_button_3 = PyPushButton(
+            text="Delete",
+            radius=8,
+            color=self.themes["app_color"]["text_foreground"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_hover=self.themes["app_color"]["dark_three"],
+            bg_color_pressed=self.themes["app_color"]["dark_four"]
+        )
+
+        self.icon_4 = QIcon(Functions.set_svg_icon("icon_close.svg"))
+        self.push_button_3.setMaximumHeight(30)
+        self.push_button_3.setIcon(self.icon_4)
+
         # PY LINE EDIT
         self.line_edit = PyLineEdit(
             text = "",
@@ -471,7 +485,7 @@ class SetupMainWindow:
             scroll_bar_btn_color = self.themes["app_color"]["dark_four"],
             context_color = self.themes["app_color"]["context_color"]
         )
-        self.table_widget.setColumnCount(4)
+        self.table_widget.setColumnCount(5)
         self.table_widget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
         self.table_widget.setSelectionMode(QAbstractItemView.ExtendedSelection)
         self.table_widget.setSelectionBehavior(QAbstractItemView.SelectRows)
@@ -493,11 +507,16 @@ class SetupMainWindow:
         self.column_4.setTextAlignment(Qt.AlignCenter)
         self.column_4.setText("Other")
 
+        self.column_5 = QTableWidgetItem()
+        self.column_5.setTextAlignment(Qt.AlignCenter)
+        self.column_5.setText("Description")
+
         # Set column
         self.table_widget.setHorizontalHeaderItem(0, self.column_1)
         self.table_widget.setHorizontalHeaderItem(1, self.column_2)
         self.table_widget.setHorizontalHeaderItem(2, self.column_3)
         self.table_widget.setHorizontalHeaderItem(3, self.column_4)
+        self.table_widget.setHorizontalHeaderItem(4, self.column_5)
 
         """
         for x in range(10):
@@ -520,6 +539,7 @@ class SetupMainWindow:
         self.ui.load_pages.horizontalLayout_2.addWidget(self.icon_button_1)
         self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_1)
         self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_2)
+        self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_3)
 
         self.ui.load_pages.horizontalLayout_3.addWidget(self.table_widget)
         # RIGHT COLUMN
