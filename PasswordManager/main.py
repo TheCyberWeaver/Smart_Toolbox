@@ -18,21 +18,28 @@ class Passwordmanager(QMainWindow):
         self.settings = settings.items
 
 
+
         self.mydb = mysql.connector.connect(
             host="localhost",
             user="root",
             password="7bf9108cd896f33C!"
         )
         self.cursorObject = self.mydb.cursor()
-        print("Hallo")
-        self.getAll()
-
-    def getAll(self):
-
         createDatabases = "CREATE DATABASE IF NOT EXISTS passwordmanager"
         useDatabase = "USE passwordmanager"
+        createTable = "CREATE TABLE IF NOT EXISTS passwords(id INT,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
         self.cursorObject.execute(createDatabases)
         self.cursorObject.execute(useDatabase)
+        self.cursorObject.execute(createTable)
+
+        self.getAll()
+
+        self.uiInitiation()
+
+    def uiInitiation(self):
+        self.ui.left_btn_1.clicked.connect(self.getAll())
+
+    def getAll(self):
 
         showall = "select * from passwords"
 

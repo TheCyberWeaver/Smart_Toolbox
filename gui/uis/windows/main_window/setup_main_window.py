@@ -224,7 +224,7 @@ class SetupMainWindow:
 
         # BTN 1
         self.left_btn_1 = PyPushButton(
-            text="Btn 1",
+            text="Btn",
             radius=8,
             color=self.themes["app_color"]["text_foreground"],
             bg_color=self.themes["app_color"]["dark_one"],
@@ -408,14 +408,17 @@ class SetupMainWindow:
 
         # PUSH BUTTON 1
         self.push_button_1 = PyPushButton(
-            text = "Button Without Icon",
+            text = "da",
             radius  =8,
             color = self.themes["app_color"]["text_foreground"],
             bg_color = self.themes["app_color"]["dark_one"],
             bg_color_hover = self.themes["app_color"]["dark_three"],
             bg_color_pressed = self.themes["app_color"]["dark_four"]
         )
-        self.push_button_1.setMinimumHeight(40)
+        self.push_button_1.setMaximumHeight(40)
+        self.push_button_1.setMaximumWidth(80)
+        self.icon_2=QIcon(Functions.set_svg_icon("icon_refresh.svg"))
+        self.push_button_1.setIcon(self.icon_2)
 
         # PUSH BUTTON 2
         self.push_button_2 = PyPushButton(
@@ -426,9 +429,9 @@ class SetupMainWindow:
             bg_color_hover = self.themes["app_color"]["dark_three"],
             bg_color_pressed = self.themes["app_color"]["dark_four"]
         )
-        self.icon_2 = QIcon(Functions.set_svg_icon("icon_settings.svg"))
+        self.icon_3 = QIcon(Functions.set_svg_icon("icon_settings.svg"))
         self.push_button_2.setMinimumHeight(40)
-        self.push_button_2.setIcon(self.icon_2)
+        self.push_button_2.setIcon(self.icon_3)
 
         # PY LINE EDIT
         self.line_edit = PyLineEdit(
