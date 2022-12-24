@@ -46,6 +46,7 @@ from . functions_main_window import *
 from gui.uis.windows.main_window import *
 from gui.core.functions import Functions
 from PasswordManager.main import *
+from MathToolBox.main import *
 # PY WINDOW
 # ///////////////////////////////////////////////////////////////
 class SetupMainWindow:
@@ -449,10 +450,20 @@ class SetupMainWindow:
         self.push_button_3.setMaximumHeight(30)
         self.push_button_3.setIcon(self.icon_4)
 
+        self.push_button_4 = PyPushButton(
+            text="Run",
+            radius=8,
+            color=self.themes["app_color"]["text_foreground"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_hover=self.themes["app_color"]["dark_three"],
+            bg_color_pressed=self.themes["app_color"]["dark_four"]
+        )
+        self.push_button_4.setMaximumHeight(30)
+
         # PY LINE EDIT
         self.line_edit = PyLineEdit(
             text = "",
-            place_holder_text = "Place holder text",
+            place_holder_text = "u(x,y)",
             radius = 8,
             border_size = 2,
             color = self.themes["app_color"]["text_foreground"],
@@ -462,6 +473,77 @@ class SetupMainWindow:
             context_color = self.themes["app_color"]["context_color"]
         )
         self.line_edit.setMinimumHeight(30)
+        self.line_edit.setMaximumWidth(200)
+
+        self.line_edit_2 = PyLineEdit(
+            text="",
+            place_holder_text="v(x,y)",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_2.setMinimumHeight(30)
+        self.line_edit_2.setMaximumWidth(200)
+
+        self.line_edit_3 = PyLineEdit(
+            text="",
+            place_holder_text="X Minimum",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_3.setMinimumHeight(30)
+        self.line_edit_3.setMaximumWidth(150)
+
+        self.line_edit_4 = PyLineEdit(
+            text="",
+            place_holder_text="X Maximum",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_4.setMinimumHeight(30)
+        self.line_edit_4.setMaximumWidth(150)
+
+        self.line_edit_5 = PyLineEdit(
+            text="",
+            place_holder_text="Y Minimum",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_5.setMinimumHeight(30)
+        self.line_edit_5.setMaximumWidth(150)
+
+        self.line_edit_6 = PyLineEdit(
+            text="",
+            place_holder_text="Y Maximum",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_6.setMinimumHeight(30)
+        self.line_edit_6.setMaximumWidth(150)
 
         # TOGGLE BUTTON
         self.toggle_button = PyToggle(
@@ -542,6 +624,17 @@ class SetupMainWindow:
         self.ui.load_pages.horizontalLayout_2.addWidget(self.push_button_3)
 
         self.ui.load_pages.horizontalLayout_3.addWidget(self.table_widget)
+
+        self.ui.load_pages.horizontalLayout_4.addWidget(self.push_button_4)
+
+        self.ui.load_pages.verticalLayout_6.addWidget(self.line_edit)
+        self.ui.load_pages.verticalLayout_6.addWidget(self.line_edit_2)
+
+        self.ui.load_pages.verticalLayout_7.addWidget(self.line_edit_3)
+        self.ui.load_pages.verticalLayout_7.addWidget(self.line_edit_4)
+        self.ui.load_pages.verticalLayout_7.addWidget(self.line_edit_5)
+        self.ui.load_pages.verticalLayout_7.addWidget(self.line_edit_6)
+
         # RIGHT COLUMN
         # ///////////////////////////////////////////////////////////////
         self
@@ -585,6 +678,9 @@ class SetupMainWindow:
         # END - EXAMPLE CUSTOM WIDGETS
         # ///////////////////////////////////////////////////////////////
         self.Passwordmanager = Passwordmanager(self)
+        self.MathToolBox=MathToolBox(self)
+
+
     # RESIZE GRIPS AND CHANGE POSITION
     # Resize or change position when window is resized
     # ///////////////////////////////////////////////////////////////

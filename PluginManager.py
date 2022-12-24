@@ -77,7 +77,7 @@ class CoderPluginManager(PluginManager):
     name = "MethodsManager"
 
     def __init__(self, plugins=(), config={}, info=0):
-        default_directory = os.path.join(os.path.dirname(__file__), "Methods")
+        default_directory = os.path.join(os.path.dirname(__file__), "Transcoder/Methods")
         self.directories = config.get("directories", (default_directory,))
         print('================================<DirectoryPlugManager>================================')
         PluginManager.__init__(self, plugins, config, info)
@@ -107,6 +107,54 @@ class CoderPluginManager(PluginManager):
 
                 # fh, filename, desc = find_module(name, [dir])
                 mod = importlib.import_module("Transcoder.Methods." + name)
+                if self.infoPrint >= 1: print(mod)
+                cls = getattr(mod, name)
+
+            finally:
+                self.lock.release()
+
+            if not issubclass(cls, CoderInterface):
+                continue
+            self._loadPlugin(cls())
+
+        print('================================<DirectoryPlugManager>================================')
+
+class MathPluginManager(PluginManager):
+    """Plugin manager that loads plugins from plugin directories.
+    """
+    name = "MethodsManager"
+
+    def __init__(self, plugins=(), config={}, info=0):
+        default_directory = os.path.join(os.path.dirname(__file__), "MathToolBox/Methods")
+        self.directories = config.get("directories", (default_directory,))
+        print('================================<DirectoryPlugManager>================================')
+        PluginManager.__init__(self, plugins, config, info)
+
+        self.lock = threading.Lock()
+
+    def loadPlugins(self):
+        """Load plugins by iterating files in plugin directories.
+        """
+        plugins = []
+        print('|| [Info]:Path of directories:', self.directories)
+        for dir in self.directories:
+            try:
+                for f in os.listdir(dir):
+                    if f.endswith(".py") and f != "__init__.py":
+                        plugins.append((f[:-3], dir))
+            except OSError:
+                print("[Warning]:Failed to access: %s" % dir)
+                continue
+
+        print('|| [Info]:Directory all plugins:')
+        for plugin in plugins:
+            print('|| ', plugin)
+        for (name, dir) in plugins:
+            try:
+                self.lock.acquire()
+
+                # fh, filename, desc = find_module(name, [dir])
+                mod = importlib.import_module("MathToolBox.Methods." + name)
                 if self.infoPrint >= 1: print(mod)
                 cls = getattr(mod, name)
 

@@ -17,8 +17,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractItemView, QApplication, QGroupBox, QHBoxLayout,
     QLabel, QLineEdit, QListWidget, QListWidgetItem,
-    QPlainTextEdit, QPushButton, QRadioButton, QScrollArea,
-    QSizePolicy, QStackedWidget, QTextEdit, QVBoxLayout,
+    QPlainTextEdit, QPushButton, QRadioButton, QSizePolicy,
+    QStackedWidget, QTabWidget, QTextEdit, QVBoxLayout,
     QWidget)
 
 class Ui_MainPages(object):
@@ -26,8 +26,8 @@ class Ui_MainPages(object):
         if not MainPages.objectName():
             MainPages.setObjectName(u"MainPages")
         MainPages.resize(803, 543)
-        self.verticalLayout_3 = QVBoxLayout(MainPages)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.verticalLayout_4 = QVBoxLayout(MainPages)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
         self.pages = QStackedWidget(MainPages)
         self.pages.setObjectName(u"pages")
         self.page_1 = QWidget()
@@ -160,16 +160,73 @@ class Ui_MainPages(object):
         self.page_3.setObjectName(u"page_3")
         self.verticalLayout_5 = QVBoxLayout(self.page_3)
         self.verticalLayout_5.setObjectName(u"verticalLayout_5")
-        self.scrollArea_2 = QScrollArea(self.page_3)
-        self.scrollArea_2.setObjectName(u"scrollArea_2")
-        self.scrollArea_2.setWidgetResizable(True)
-        self.scrollAreaWidgetContents_3 = QWidget()
-        self.scrollAreaWidgetContents_3.setObjectName(u"scrollAreaWidgetContents_3")
-        self.scrollAreaWidgetContents_3.setGeometry(QRect(0, 0, 765, 505))
-        self.verticalLayout = QVBoxLayout(self.scrollAreaWidgetContents_3)
+        self.tabWidget = QTabWidget(self.page_3)
+        self.tabWidget.setObjectName(u"tabWidget")
+        self.tabWidget.setStyleSheet(u"QTabWidget::pane {\n"
+"	border-top:2px solid #C2C7CB;\n"
+"	position:absolute;\n"
+"	top:-10px;\n"
+"}\n"
+"\n"
+"/* \u6807\u7b7e\u5c45\u4e2d */\n"
+"QTabWidget::tab-bar {\n"
+"	alignment:center;\n"
+"}\n"
+"\n"
+"QTabBar::tab {\n"
+"	background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"	border:2px solid #C4C4C3;\n"
+"	border-bottom-color:#C2C7CB;\n"
+"	border-top-left-radius:4px;\n"
+"	border-top-right-radius:4px;\n"
+"	min-width:20px;\n"
+"	padding:2px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected,QTabBar::tab:hover {\n"
+"	background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"	border-color:#9B9B9B;\n"
+"	border-bottom-color:#C2C7CB;\n"
+"}")
+        self.tab = QWidget()
+        self.tab.setObjectName(u"tab")
+        self.verticalLayout = QVBoxLayout(self.tab)
         self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label_11 = QLabel(self.tab)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setMaximumSize(QSize(16777215, 32))
+        self.label_11.setStyleSheet(u"font: 700 18pt \"Segoe Print\";")
+        self.label_11.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_11)
+
+        self.label_12 = QLabel(self.tab)
+        self.label_12.setObjectName(u"label_12")
+        self.label_12.setMaximumSize(QSize(16777215, 12))
+        self.label_12.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_12.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_12)
+
         self.horizontalLayout_4 = QHBoxLayout()
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
+        self.verticalLayout_6 = QVBoxLayout()
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_6)
+
+        self.verticalLayout_7 = QVBoxLayout()
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+
+        self.horizontalLayout_4.addLayout(self.verticalLayout_7)
+
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
@@ -178,18 +235,29 @@ class Ui_MainPages(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_5)
 
-        self.scrollArea_2.setWidget(self.scrollAreaWidgetContents_3)
+        self.horizontalLayout_7 = QHBoxLayout()
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
 
-        self.verticalLayout_5.addWidget(self.scrollArea_2)
+        self.verticalLayout.addLayout(self.horizontalLayout_7)
+
+        self.tabWidget.addTab(self.tab, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.verticalLayout_3 = QVBoxLayout(self.tab_2)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.tabWidget.addTab(self.tab_2, "")
+
+        self.verticalLayout_5.addWidget(self.tabWidget)
 
         self.pages.addWidget(self.page_3)
 
-        self.verticalLayout_3.addWidget(self.pages)
+        self.verticalLayout_4.addWidget(self.pages)
 
 
         self.retranslateUi(MainPages)
 
-        self.pages.setCurrentIndex(1)
+        self.pages.setCurrentIndex(2)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainPages)
@@ -215,5 +283,9 @@ class Ui_MainPages(object):
         self.label_9.setText(QCoreApplication.translate("MainPages", u"number count", None))
         self.label_7.setText(QCoreApplication.translate("MainPages", u"passwords strength", None))
         self.label_10.setText(QCoreApplication.translate("MainPages", u"leaked passwords", None))
+        self.label_11.setText(QCoreApplication.translate("MainPages", u"Linear Algebra", None))
+        self.label_12.setText(QCoreApplication.translate("MainPages", u"Vector Field Visualization", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainPages", u"Tab 1", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainPages", u"Tab 2", None))
     # retranslateUi
 

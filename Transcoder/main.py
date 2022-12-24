@@ -1,12 +1,8 @@
-import sys, os
-import hashlib
-
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
-from .methods import *
+from PluginManager import *
 from gui.core.json_settings import Settings
-from gui.uis.pages.ui_main_pages import Ui_MainPages
 
 
 class Transcoderpage(QMainWindow):

@@ -1,18 +1,9 @@
 # IMPORT PACKAGES AND MODULES
 from gui.uis.windows.main_window.functions_main_window import *
 
-import sys, os
-import hashlib
-
-from PySide6.QtCore import Qt
-from PySide6.QtWidgets import *
-
-from Transcoder. methods import *
 # IMPORT QT CORE
-from qt_core import *
 
 # IMPORT SETTINGS
-from gui.core.json_settings import Settings
 from gui.core.functions import Functions
 
 # IMPORT PY ONE DARK WINDOWS
@@ -20,10 +11,8 @@ from gui.core.functions import Functions
 from gui.uis.windows.main_window import *
 
 # IMPORT PY ONE DARK WIDGETS
-from gui.widgets import *
 
 #import dependencies of Transcoder
-from Transcoder.methods import *
 from Transcoder.main import *
 
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
