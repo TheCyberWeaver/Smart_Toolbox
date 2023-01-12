@@ -1,6 +1,5 @@
 # IMPORT PACKAGES AND MODULES
 from gui.uis.windows.main_window.functions_main_window import *
-
 # IMPORT QT CORE
 
 # IMPORT SETTINGS
@@ -15,6 +14,7 @@ from gui.uis.windows.main_window import *
 #import dependencies of Transcoder
 from Transcoder.main import *
 
+import time
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
 os.environ["QT_FONT_DPI"] = "96"
 os.environ["QT_SCALE_FACTOR"] = "1.5"
@@ -47,12 +47,8 @@ class MainWindow(QMainWindow):
         #font.setFamilies([u"Segoe UI Black"])
         #self.ui.load_pages.label_2.setFont(font)
 
-
-
-
         # SHOW MAIN WINDOW
         # ///////////////////////////////////////////////////////////////
-        self.show()
 
 
 
@@ -160,6 +156,10 @@ class MainWindow(QMainWindow):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
 
+class MySplashScreen(QSplashScreen):
+    # 鼠标点击事件
+    def mousePressEvent(self, event):
+        pass
 
 # SETTINGS WHEN TO START
 # Set the initial class and also additional parameters of the "QApplication" class
@@ -168,8 +168,24 @@ if __name__ == "__main__":
     # APPLICATION
     # ///////////////////////////////////////////////////////////////
     app = QApplication(sys.argv)
+
+    splash = MySplashScreen()
+    # 初始图片
+    splash.setPixmap(QPixmap("E:\Smartcoder\Resources\startImage.gif"))  # 设置背景图片
+    # 初始文本
+    #splash.showMessage("加载... 0%", QtCore.Qt.AlignHCenter | QtCore.Qt.AlignBottom, QtCore.Qt.black)
+    # 设置字体
+    splash.setFont(QFont('微软雅黑', 10))
+    # 显示启动界面
+    splash.show()
+
+    app.processEvents()
     app.setWindowIcon(QIcon("icon.ico"))
     window = MainWindow()
+    window.show()
+
+    splash.finish(window)  # 隐藏启动界面
+    splash.deleteLater()
     # EXEC APP
     # ///////////////////////////////////////////////////////////////
     sys.exit(app.exec())

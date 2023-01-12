@@ -456,7 +456,45 @@ QTabBar::tab:selected {
             </layout>
            </item>
            <item>
+            <widget class="QLabel" name="label_13">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>12</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Eigenvector and Eigenvalue</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
             <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Inner Product</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
            </item>
            <item>
             <layout class="QHBoxLayout" name="horizontalLayout_7"/>

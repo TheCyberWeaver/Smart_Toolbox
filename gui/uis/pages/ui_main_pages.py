@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main_pages.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.4.0
+## Created by: Qt User Interface Compiler version 6.4.1
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -230,10 +230,26 @@ class Ui_MainPages(object):
 
         self.verticalLayout.addLayout(self.horizontalLayout_4)
 
+        self.label_13 = QLabel(self.tab)
+        self.label_13.setObjectName(u"label_13")
+        self.label_13.setMaximumSize(QSize(16777215, 12))
+        self.label_13.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_13.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_13)
+
         self.horizontalLayout_5 = QHBoxLayout()
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
 
         self.verticalLayout.addLayout(self.horizontalLayout_5)
+
+        self.label_14 = QLabel(self.tab)
+        self.label_14.setObjectName(u"label_14")
+        self.label_14.setMaximumSize(QSize(16777215, 30))
+        self.label_14.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_14.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout.addWidget(self.label_14)
 
         self.horizontalLayout_7 = QHBoxLayout()
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
@@ -285,6 +301,8 @@ class Ui_MainPages(object):
         self.label_10.setText(QCoreApplication.translate("MainPages", u"leaked passwords", None))
         self.label_11.setText(QCoreApplication.translate("MainPages", u"Linear Algebra", None))
         self.label_12.setText(QCoreApplication.translate("MainPages", u"Vector Field Visualization", None))
+        self.label_13.setText(QCoreApplication.translate("MainPages", u"Eigenvector and Eigenvalue", None))
+        self.label_14.setText(QCoreApplication.translate("MainPages", u"Inner Product", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("MainPages", u"Tab 1", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainPages", u"Tab 2", None))
     # retranslateUi

@@ -25,7 +25,7 @@ from gui.uis.pages.ui_main_pages import Ui_MainPages
 
 from gui.uis.windows.main_window import *
 
-class Passwordmanager(QMainWindow):
+class PersonalAccountingSystem(QMainWindow):
 
     def __init__(self, loadpage):
         super().__init__()
@@ -42,22 +42,23 @@ class Passwordmanager(QMainWindow):
         )
 
         self.cursorObject = self.mydb.cursor()
-        createDatabases = "CREATE DATABASE IF NOT EXISTS passwordmanager"
-        useDatabase = "USE passwordmanager"
-        createTable = "CREATE TABLE IF NOT EXISTS passwords(id INT PRIMARY KEY,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
+        createDatabases = "CREATE DATABASE IF NOT EXISTS personalaccountingsystem"
+        useDatabase = "USE personalaccountingsystem"
+        createTable_Wallet = "CREATE TABLE IF NOT EXISTS wallet(id INT PRIMARY KEY,name varchar(50),current_money varchar(50),description text);"
+        createTable_Transaction = "CREATE TABLE IF NOT EXISTS Transaction(id INT PRIMARY KEY,wallet_name varchar(50),money varchar(50),date date);"
+        createTable_Card = "CREATE TABLE IF NOT EXISTS Card(id INT PRIMARY KEY,card_name varchar(50),information_string(100),description text);"
         self.cursorObject.execute(createDatabases)
         self.cursorObject.execute(useDatabase)
-        self.cursorObject.execute(createTable)
+        self.cursorObject.execute(createTable_Wallet)
+        self.cursorObject.execute(createTable_Transaction)
+        self.cursorObject.execute(createTable_Card)
 
         self.fetchAllFromDatabase()
 
         self.uiInitiation()
 
     def uiInitiation(self):
-        self.ui.icon_button_1.clicked.connect(lambda: self.fetchAllFromDatabase())
-        self.ui.push_button_1.clicked.connect(lambda: self.saveAll())
-        self.ui.push_button_2.clicked.connect(lambda: self.ui.table_widget.insertRow(self.ui.table_widget.rowCount()))
-        self.ui.push_button_3.clicked.connect(lambda: self.deleteCurrentRow())
+        pass
     def fetchAllFromDatabase(self):
 
         #保留表头
@@ -136,72 +137,3 @@ class Passwordmanager(QMainWindow):
         print(currentRowIndex)
         for j  in range(5):
             self.ui.table_widget.setItem(currentRowIndex,j,QTableWidgetItem(""))
-    #统计信息
-    def updateStatistic(self,result):
-
-
-        strength = 0
-        leakedcount=0
-
-        f=open("Resources/All_List.txt",'r')
-        leakedList=f.readlines()
-        f.close()
-
-        savedList=[]
-        for id, name, username, password, date, other, description in result:
-            strength += self.passwordStrength(password)
-            if password in savedList:
-                leakedcount += 1
-            else:
-                for word in leakedList:
-                    if password == word.rstrip("\n"):
-                        leakedcount += 1
-                        savedList.append(password)
-                        break
-        #print(savedList)
-
-        percentage = int(strength / (4 * len(result)) * 100)
-        self.ui.circular_progress_1.set_value(len(result))
-        self.ui.circular_progress_2.set_value(percentage)
-        #print(leakedcount)
-        self.ui.circular_progress_3.set_value(int(leakedcount/len(result)*100))
-
-    #计算单条密码的复杂度
-    def passwordStrength(self,str):
-
-        password = str
-
-        dig = 0
-        lCase = 0
-        hCase = 0
-        punnctuation = 0
-
-        if len(password) <= 8:
-            return 0
-        else:
-            for ch in password:
-                if ch in string.digits:
-                    dig = 1
-                elif ch in string.ascii_lowercase:
-                    lCase = 1
-                elif ch in string.ascii_uppercase:
-                    hCase = 1
-                elif ch in string.punctuation:
-                    punnctuation = 1
-            return dig + lCase + hCase + punnctuation
-
-"""
-databaseID=59
-name="thoa"
-insert="INSERT INTO passwords (id,name) values ("+str(databaseID)+",\'"+name+ "\')"
-mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="7bf9108cd896f33C!"
-        )
-cursorObject = mydb.cursor()
-cursorObject.execute("use passwordmanager")
-cursorObject.execute(insert)
-mydb.commit()
-
-"""

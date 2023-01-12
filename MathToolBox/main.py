@@ -22,6 +22,7 @@ from gui.core.json_settings import Settings
 
 import sys
 import numpy as np
+#from readonly.HeightsModule import *
 import matplotlib
 import matplotlib.pyplot as plt
 
