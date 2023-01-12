@@ -1,8 +1,8 @@
 {
-    "app_name": "Smartcoder",
+    "app_name": "Smart Toolbox",
     "version" : "v2.2.2",
     "copyright" : "By: Thomas Lu",
-    "year" : 2022,
+    "year" : 2023,
     "theme_name" : "default",
     "custom_title_bar": true,
     "startup_size": [

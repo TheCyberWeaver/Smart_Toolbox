@@ -170,7 +170,7 @@ class MathPluginManager(PluginManager):
 """
 class Coder:
     def __init__(self):
-        self.folderPath = 'E:\\Smartcoder\\Methods\\'
+        self.folderPath = 'E:\\Smarttoolbox\\Methods\\'
         self.pluginNameList = os.listdir(self.folderPath)
 
     def plugin_load(self, pluginName: str, sep=':', package=None):
