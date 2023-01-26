@@ -3,20 +3,19 @@ from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from PluginManager import *
 from gui.core.json_settings import Settings
+from Smartcoder import Ui_Dialog
+import sys
+class Transcoder(QMainWindow):
 
-
-class Transcoderpage(QMainWindow):
-
-    def __init__(self, loadpage):
+    def __init__(self):
         super().__init__()
         self.Methods_manager = CoderPluginManager()
         self.Methods_manager.loadPlugins()      #加载所有编码插件
 
-        settings = Settings()
-        self.settings = settings.items
-
         # print(self.Methods_manager.getPluginsName())
-        self.ui = loadpage
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
+
         self.uiInitiation()
 
         self.final = ''     #最终输出的字符串
@@ -148,7 +147,7 @@ class Transcoderpage(QMainWindow):
 # 主函数main
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    window = Transcoderpage()
+    window = Transcoder()
 
     # app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
     window.show()  # 显示窗口

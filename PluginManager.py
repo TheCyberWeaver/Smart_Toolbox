@@ -1,8 +1,7 @@
 import os
 import importlib
-import sys
 # from imp import find_module,load_module
-from Transcoder.Module import CoderInterface
+from apps.Transcoder.Module import CoderInterface
 import threading
 
 
@@ -77,7 +76,7 @@ class CoderPluginManager(PluginManager):
     name = "MethodsManager"
 
     def __init__(self, plugins=(), config={}, info=0):
-        default_directory = os.path.join(os.path.dirname(__file__), "Transcoder/Methods")
+        default_directory = os.path.join(os.path.dirname(__file__), "apps/Transcoder/Methods")
         self.directories = config.get("directories", (default_directory,))
         print('================================<DirectoryPlugManager>================================')
         PluginManager.__init__(self, plugins, config, info)
@@ -106,7 +105,7 @@ class CoderPluginManager(PluginManager):
                 self.lock.acquire()
 
                 # fh, filename, desc = find_module(name, [dir])
-                mod = importlib.import_module("Transcoder.Methods." + name)
+                mod = importlib.import_module("apps.Transcoder.Methods." + name)
                 if self.infoPrint >= 1: print(mod)
                 cls = getattr(mod, name)
 
@@ -125,7 +124,7 @@ class MathPluginManager(PluginManager):
     name = "MethodsManager"
 
     def __init__(self, plugins=(), config={}, info=0):
-        default_directory = os.path.join(os.path.dirname(__file__), "MathToolBox/Methods")
+        default_directory = os.path.join(os.path.dirname(__file__), "apps/MathToolBox/Methods")
         self.directories = config.get("directories", (default_directory,))
         print('================================<DirectoryPlugManager>================================')
         PluginManager.__init__(self, plugins, config, info)

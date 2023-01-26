@@ -3,15 +3,15 @@
     "version" : "v2.2.2",
     "copyright" : "By: Thomas Lu",
     "year" : 2023,
-    "theme_name" : "default",
+    "theme_name" : "test",
     "custom_title_bar": true,
     "startup_size": [
-        900,
-        600
+        600,
+        450
     ],
     "minimum_size": [
-        900,
-        600
+        600,
+        450
     ],
     "lef_menu_size" : {
         "minimum" : 50,

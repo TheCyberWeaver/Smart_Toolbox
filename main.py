@@ -12,9 +12,8 @@ from gui.uis.windows.main_window import *
 # IMPORT PY ONE DARK WIDGETS
 
 #import dependencies of Transcoder
-from Transcoder.main import *
+from apps.Transcoder.main import *
 
-import time
 # ADJUST QT FONT DPI FOR HIGHT SCALE AN 4K MONITOR
 os.environ["QT_FONT_DPI"] = "96"
 os.environ["QT_SCALE_FACTOR"] = "1.5"

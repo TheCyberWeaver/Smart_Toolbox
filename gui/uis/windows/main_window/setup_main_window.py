@@ -16,18 +16,13 @@
 
 # IMPORT PACKAGES AND MODULES
 # ///////////////////////////////////////////////////////////////
-from gui.widgets.py_table_widget.py_table_widget import PyTableWidget
 from . functions_main_window import *
-import sys
-import os
 
 # IMPORT QT CORE
 # ///////////////////////////////////////////////////////////////
-from qt_core import *
 
 # IMPORT SETTINGS
 # ///////////////////////////////////////////////////////////////
-from gui.core.json_settings import Settings
 
 # IMPORT THEME COLORS
 # ///////////////////////////////////////////////////////////////
@@ -39,14 +34,11 @@ from gui.widgets import *
 
 # LOAD UI MAIN
 # ///////////////////////////////////////////////////////////////
-from gui.uis.windows.main_window.ui_main import *
-# MAIN FUNCTIONS 
+# MAIN FUNCTIONS
 # ///////////////////////////////////////////////////////////////
-from . functions_main_window import *
-from gui.uis.windows.main_window import *
 from gui.core.functions import Functions
-from PasswordManager.main import *
-from MathToolBox.main import *
+from apps.PasswordManager.main import *
+from apps.MathToolBox.main import *
 # PY WINDOW
 # ///////////////////////////////////////////////////////////////
 class SetupMainWindow:
