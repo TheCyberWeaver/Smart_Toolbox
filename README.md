@@ -1,22 +1,22 @@
-# Smartcoder
+# SmartToolBox
 
 
-# version 2.2.1
+# version 0.1.0
 
-This is a smart toolbox that helps you to solve daily life problems
+This is a smart toolbox that provides you a quick way to start up your programs and applications with a GUI launcher
 
-## This Toolbox can implement these functions:
+## This Toolbox already include these programs:
 
 ## Password Manger
 
 A password manager that stores your password into a local Mysql database
+![](.README_images/d702261e.png)
 
-![](.README_images/e230ed2e.png)
 
 ## Decoder-Encoder
 
 A simple decoder and encoder that transform a string
-![](.README_images/9e84b4c5.png)
+![](.README_images/951da899.png)
 
 currently supported coding methods:
 
@@ -42,5 +42,5 @@ currently supported coding methods:
 
 ## Math Toolbox
 A math toolbox that can visualize some important concepts
-![](.README_images/3936ce26.png)
+![](.README_images/66804ed2.png)
 
