@@ -16,6 +16,28 @@
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="styleSheet">
+      <string notr="true">/*设置对象名为TW_SampleResult的QTabWidget控件*/
+QTabWidget#TW_SampleResult&gt;QTabBar::tab
+{
+     font: 15pt &quot;Chinese fine black&quot;;
+     background-color:rgb(104,191,249);
+     min-width: 100px;
+     min-height: 30px;
+     padding: 2px;
+}
+/*设置对象名为TW_SampleResult的QTabWidget控件*/
+QTabWidget#TW_SampleResult&gt;QTabBar::tab:selected
+{
+    background-color: rgb(228, 233, 242);
+}
+ 
+QTabBar::tab:selected
+{
+    background-color: rgb(228, 233, 242);
+}
+</string>
+     </property>
      <property name="currentIndex">
       <number>0</number>
      </property>
@@ -63,7 +85,17 @@
         </widget>
        </item>
        <item>
-        <layout class="QVBoxLayout" name="verticalLayout_9"/>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_4"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_6"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_7"/>
+         </item>
+        </layout>
        </item>
       </layout>
      </widget>

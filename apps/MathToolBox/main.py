@@ -30,7 +30,8 @@ matplotlib.use('Qt5Agg')
 
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
-
+from ui_MathToolBox import Ui_Form
+from setup_ui import SetupMainWindow
 #An Example of ploting graphs in pyside6
 class MplCanvas(FigureCanvasQTAgg):
 
@@ -53,33 +54,41 @@ class MainWindow(QMainWindow):
 
         self.show()
 
-class MathToolBox(QMainWindow):
+class MathToolBox(QWidget):
 
-    def __init__(self, loadpage):
+    def __init__(self):
         super().__init__()
-        self.ui=loadpage    #所有setup_main_window.py的组件都被放在self.ui里
+        self.settingFilesFolderPath = "apps\PasswordManager"
 
-        settings = Settings()
+        # 设置界面为我们生成的界面
+        self.ui = Ui_Form()
+        self.ui.setupUi(self)
+
+        settings = Settings(self.settingFilesFolderPath)
+        print("[info]: using", settings.settings_path)
         self.settings = settings.items
+        # SETUP MAIN WINDOW
+        # ///////////////////////////////////////////////////////////////
+        # self.hide_grips = True  # Show/Hide resize grips
 
-
+        SetupMainWindow.setup_gui(self)
 
         self.uiInitiation()
 
     def uiInitiation(self):
-        self.ui.push_button_4.clicked.connect(lambda: self.vectorfieldShow())
+        self.push_button_4.clicked.connect(lambda: self.vectorfieldShow())
 
     def vectorfieldShow(self):
 
 
-        x_intervalMin=int(self.ui.line_edit_3.text())
-        x_intervalMax=int(self.ui.line_edit_4.text())
+        x_intervalMin=int(self.line_edit_3.text())
+        x_intervalMax=int(self.line_edit_4.text())
 
-        y_intervalMin=int(self.ui.line_edit_5.text())
-        y_intervalMax=int(self.ui.line_edit_6.text())
+        y_intervalMin=int(self.line_edit_5.text())
+        y_intervalMax=int(self.line_edit_6.text())
 
-        self.function_u_expression=self.ui.line_edit.text()
-        self.function_v_expression = self.ui.line_edit_2.text()
+        self.function_u_expression=self.line_edit.text()
+        self.function_v_expression = self.line_edit_2.text()
 
         X,Y=np.mgrid[x_intervalMin:x_intervalMax, y_intervalMin:y_intervalMax]
         Vector_X=[]
@@ -104,3 +113,13 @@ class MathToolBox(QMainWindow):
             return eval(self.function_v_expression)
         except:
             return 0
+if __name__ == "__main__":
+    # 初始化QApplication，界面展示要包含在QApplication初始化之后，结束之前
+    app = QApplication(sys.argv)
+
+    # 初始化并展示我们的界面组件
+    window = MathToolBox()
+    print("[info]: Process", window.settings["app_name"], "is starting")
+    window.show()
+
+    sys.exit(app.exec())

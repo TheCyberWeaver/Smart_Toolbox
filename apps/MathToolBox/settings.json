@@ -1,0 +1,38 @@
+{
+    "app_name": "MathToolBox",
+    "version" : "v1.0.0",
+    "copyright" : "By: Thomas Lu",
+    "year" : 2023,
+    "theme_name" : "test_PasswordManager",
+    "app_main":"E:\\Smarttoolbox\\apps\\MathToolBox\\main.py",
+    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
+    "custom_title_bar": true,
+    "startup_size": [
+        600,
+        450
+    ],
+    "minimum_size": [
+        600,
+        450
+    ],
+    "lef_menu_size" : {
+        "minimum" : 50,
+        "maximum" : 240
+    },
+    "left_menu_content_margins" : 3,
+    "left_column_size" : {
+        "minimum" : 0,
+        "maximum" : 240
+    },
+    "right_column_size" : {
+        "minimum" : 0,
+        "maximum" : 240
+    },
+    "time_animation" : 500,
+    "font" : {
+        "family" : "Segoe UI",
+        "title_size" : 14,
+        "text_size" : 14
+    },
+    "absolute_path": "E:\\Smarttoolbox"
+}
