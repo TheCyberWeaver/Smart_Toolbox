@@ -20,10 +20,13 @@ from gui.widgets import *
 
 from gui.widgets.py_icon_link import *
 
+import os
 class UI_MainWindow(object):
     def setup_ui(self, parent):
         if not parent.objectName():
             parent.setObjectName("MainWindow")
+
+        self.Items=[]
 
         # LOAD SETTINGS
         # ///////////////////////////////////////////////////////////////
@@ -71,6 +74,7 @@ class UI_MainWindow(object):
         self.central_widget_layout.addWidget(self.window)
 
 
+
         # ADD TITLE BAR FRAME
         # ///////////////////////////////////////////////////////////////
         self.title_bar_frame = QFrame()
@@ -104,12 +108,12 @@ class UI_MainWindow(object):
         )
         self.title_bar_layout.addWidget(self.title_bar)
 
-        self.right_app_frame = QFrame()
+        self.app_frame = QFrame()
 
         # ADD RIGHT APP LAYOUT
-        self.right_app_layout = QVBoxLayout(self.right_app_frame)
-        self.right_app_layout.setContentsMargins(3, 3, 3, 3)
-        self.right_app_layout.setSpacing(6)
+        self.app_layout = QVBoxLayout(self.app_frame)
+        self.app_layout.setContentsMargins(3, 3, 3, 3)
+        self.app_layout.setSpacing(6)
 
         # ADD CONTENT AREA
         # ///////////////////////////////////////////////////////////////
@@ -120,13 +124,6 @@ class UI_MainWindow(object):
         self.content_area_layout.setContentsMargins(0, 0, 0, 0)
         self.content_area_layout.setSpacing(0)
 
-        self.test=PyIconLink(self,"E:\Smarttoolbox\main.exe")
-
-        self.test1 = PyIconLink(self, "test1")
-        self.test2 = PyIconLink(self, "test2")
-        self.content_area_layout.addWidget(self.test)
-        self.content_area_layout.addWidget(self.test1)
-        self.content_area_layout.addWidget(self.test2)
 
         # CREDITS / BOTTOM APP FRAME
         # ///////////////////////////////////////////////////////////////
@@ -151,16 +148,48 @@ class UI_MainWindow(object):
         #  ADD TO LAYOUT
         self.credits_layout.addWidget(self.credits)
 
+        # Scan all the app files according to settings.json
+        print("[Info]: Finding all Apps...")
+        self.apps_settings_path=list_allapps("E:\\Smarttoolbox\\apps")
+        self.apps_settings=[]
+        for path in self.apps_settings_path:
+            self.apps_settings.append(Settings(path).items)
+        self.apps=[]
+        for setting_file in self.apps_settings:
+            print("[Info]: found app: ",setting_file["app_main"])
+            app=PyIconLink(self,setting_file["app_main"],setting_file["icon"])
+            self.apps.append(app)
+
+
+
+
+
+        for i in self.apps:
+            self.content_area_layout.addWidget(i)
+
         # ADD WIDGETS TO RIGHT LAYOUT
         # ///////////////////////////////////////////////////////////////
-        self.right_app_layout.addWidget(self.title_bar_frame)
-        self.right_app_layout.addWidget(self.content_area_frame)
-        self.right_app_layout.addWidget(self.credits_frame)
+        self.app_layout.addWidget(self.title_bar_frame)
+        self.app_layout.addWidget(self.content_area_frame)
+        self.app_layout.addWidget(self.credits_frame)
 
         # ADD WIDGETS TO "PyWindow"
         # Add here your custom widgets or default widgets
         # ///////////////////////////////////////////////////////////////
-        self.window.layout.addWidget(self.right_app_frame)
+        self.window.layout.addWidget(self.app_frame)
         # ADD CENTRAL WIDGET AND SET CONTENT MARGINS
         # ///////////////////////////////////////////////////////////////
         parent.setCentralWidget(self.central_widget)
+
+def list_allapps(path, apps=[]):
+    if os.path.exists(path):
+        files = os.listdir(path)
+    else:
+        print('this path not exist')
+    for file in files:
+        if os.path.isdir(os.path.join(path, file)):
+            list_allapps(os.path.join(path, file), apps)
+        else:
+            if file=="settings.json":
+                apps.append(path)
+    return apps

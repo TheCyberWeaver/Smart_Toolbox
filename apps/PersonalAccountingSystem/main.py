@@ -16,14 +16,14 @@
 import mysql.connector
 import string
 import time
+import sys
+import os
 
 from PySide6.QtCore import Qt
 from PySide6.QtWidgets import *
 from PySide6.QtGui import *
 from gui.core.json_settings import Settings
-from gui.uis.pages.ui_main_pages import Ui_MainPages
 
-from gui.uis.windows.main_window import *
 
 class PersonalAccountingSystem(QMainWindow):
 
@@ -137,3 +137,14 @@ class PersonalAccountingSystem(QMainWindow):
         print(currentRowIndex)
         for j  in range(5):
             self.ui.table_widget.setItem(currentRowIndex,j,QTableWidgetItem(""))
+
+
+# 主函数main
+if __name__ == '__main__':
+    app = QApplication(sys.argv)
+    window = PersonalAccountingSystem()
+
+    # app.setStyleSheet(qdarkstyle.load_stylesheet(qt_api='pyside6', palette=LightPalette()))
+    window.show()  # 显示窗口
+
+    sys.exit(app.exec())

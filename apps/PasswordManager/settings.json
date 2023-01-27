@@ -1,9 +1,11 @@
 {
-    "app_name": "Smart Toolbox",
-    "version" : "v2.2.2",
+    "app_name": "PasswordManager",
+    "version" : "v1.0.2",
     "copyright" : "By: Thomas Lu",
     "year" : 2023,
-    "theme_name" : "test",
+    "theme_name" : "test_PasswordManager",
+    "app_main":"E:\\Smarttoolbox\\apps\\PasswordManager\\main.py",
+    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
     "custom_title_bar": true,
     "startup_size": [
         600,
@@ -32,6 +34,5 @@
         "title_size" : 14,
         "text_size" : 14
     },
-    "absolute_path": "E:\\Smarttoolbox",
-    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico"
+    "absolute_path": "E:\\Smarttoolbox"
 }

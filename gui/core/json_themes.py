@@ -26,23 +26,29 @@ from gui.core.json_settings import Settings
 # APP THEMES
 # ///////////////////////////////////////////////////////////////
 class Themes(object):
-    # LOAD SETTINGS
-    # ///////////////////////////////////////////////////////////////
-    setup_settings = Settings()
-    _settings = setup_settings.items
 
-    # APP PATH
-    # ///////////////////////////////////////////////////////////////
-    json_file = f"gui/themes/{_settings['theme_name']}.json"
-    app_path = os.path.abspath(os.getcwd())
-    settings_path = os.path.normpath(os.path.join(app_path, json_file))
-    if not os.path.isfile(settings_path):
-        print(f"WARNING: \"gui/themes/{_settings['theme_name']}.json\" not found! check in the folder {settings_path}")
 
     # INIT SETTINGS
     # ///////////////////////////////////////////////////////////////
-    def __init__(self):
+    def __init__(self,settings_path="default"):
         super(Themes, self).__init__()
+
+        # LOAD SETTINGS
+        # ///////////////////////////////////////////////////////////////
+        setup_settings = Settings(settings_path)
+        _settings = setup_settings.items
+
+        # APP PATH
+        # ///////////////////////////////////////////////////////////////
+        json_file = f"gui/themes/{_settings['theme_name']}.json"
+        app_path = os.path.abspath(os.getcwd())
+
+        #self.settings_path = os.path.normpath(os.path.join(app_path, json_file))
+        #print(_settings)
+        self.settings_path=os.path.join(_settings["absolute_path"],json_file)
+        if not os.path.isfile(self.settings_path):
+            print(
+                f"WARNING: \"gui/themes/{_settings['theme_name']}.json\" not found! check in the folder {self.settings_path}")
 
         # DICTIONARY WITH SETTINGS
         self.items = {}

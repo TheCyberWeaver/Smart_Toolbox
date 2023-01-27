@@ -669,7 +669,7 @@ class SetupMainWindow:
         # ///////////////////////////////////////////////////////////////
         # END - EXAMPLE CUSTOM WIDGETS
         # ///////////////////////////////////////////////////////////////
-        self.Passwordmanager = Passwordmanager(self)
+        self.Passwordmanager = PasswordmanagerWindow(self)
         self.MathToolBox=MathToolBox(self)
 
 

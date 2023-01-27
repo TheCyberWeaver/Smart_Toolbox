@@ -4,6 +4,7 @@ from PySide6.QtGui import *
 from PluginManager import *
 from gui.core.json_settings import Settings
 from Smartcoder import Ui_Dialog
+from qt_core import *
 import sys
 class Transcoder(QMainWindow):
 
@@ -15,6 +16,7 @@ class Transcoder(QMainWindow):
         # print(self.Methods_manager.getPluginsName())
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+        self.settings=Settings("apps/Transcoder").items
 
         self.uiInitiation()
 
@@ -27,7 +29,8 @@ class Transcoder(QMainWindow):
         self.outputInfo = ""    #输出的info
 
     def uiInitiation(self):
-
+        self.setWindowTitle(self.settings["app_name"])
+        self.setWindowIcon(QtGui.QIcon(self.settings["icon"]))
         # self.ui.listWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)  # 禁止修改item
         # 初始化列表
         self.showList(self.ui.listWidget, self.Methods_manager.getPluginsName())

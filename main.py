@@ -38,10 +38,11 @@ class MainWindow(QMainWindow):
         # SETUP MAIN WINDOW
         # ///////////////////////////////////////////////////////////////
         self.hide_grips = True # Show/Hide resize grips
+
         SetupMainWindow.setup_gui(self)
 
         #setup transcoder
-        self.Transcoder=Transcoderpage(self.ui.load_pages)
+        self.Transcoder=Transcoder(self.ui.load_pages)
         #font = QFont()
         #font.setFamilies([u"Segoe UI Black"])
         #self.ui.load_pages.label_2.setFont(font)

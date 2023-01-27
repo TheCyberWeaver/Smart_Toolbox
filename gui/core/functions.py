@@ -17,7 +17,7 @@
 # IMPORT PACKAGES AND MODULES
 # ///////////////////////////////////////////////////////////////
 import os
-
+from gui.core.json_settings import Settings
 # APP FUNCTIONS
 # ///////////////////////////////////////////////////////////////
 class Functions:
@@ -25,7 +25,7 @@ class Functions:
     # SET SVG ICON
     # ///////////////////////////////////////////////////////////////
     def set_svg_icon(icon_name):
-        app_path = os.path.abspath(os.getcwd())
+        app_path = Settings("global").items["absolute_path"]
         folder = "gui/images/svg_icons/"
         path = os.path.join(app_path, folder)
         icon = os.path.normpath(os.path.join(path, icon_name))

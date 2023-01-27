@@ -1,0 +1,10 @@
+{
+    "app_name": "Transcoder",
+    "version" : "v2.2.2",
+    "copyright" : "By: Thomas Lu",
+    "year" : 2023,
+    "theme_name" : "test",
+    "app_main":"E:\\Smarttoolbox\\apps\\Transcoder\\main.py",
+    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
+    "absolute_path": "E:\\Smarttoolbox"
+}
