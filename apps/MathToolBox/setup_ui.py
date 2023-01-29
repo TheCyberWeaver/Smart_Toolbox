@@ -167,7 +167,7 @@ class SetupMainWindow:
         # Tab 2
 
         self.push_button_5 = PyPushButton(
-            text="Run",
+            text="频谱图",
             radius=8,
             color=self.themes["app_color"]["text_foreground"],
             bg_color=self.themes["app_color"]["dark_one"],
@@ -186,6 +186,16 @@ class SetupMainWindow:
         )
         self.push_button_6.setMaximumHeight(30)
         self.push_button_6.setMaximumWidth(150)
+
+        self.push_button_7 = PyPushButton(
+            text="转原图片",
+            radius=8,
+            color=self.themes["app_color"]["text_foreground"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_hover=self.themes["app_color"]["dark_three"],
+            bg_color_pressed=self.themes["app_color"]["dark_four"]
+        )
+        self.push_button_7.setMaximumHeight(30)
 
         self.line_edit_7 = PyLineEdit(
             text="",
@@ -217,4 +227,5 @@ class SetupMainWindow:
         #Tab 2 add widget
         self.ui.verticalLayout_8.addWidget(self.push_button_5)
         self.ui.verticalLayout_5.addWidget(self.push_button_6)
+        self.ui.verticalLayout_8.addWidget(self.push_button_7)
         self.ui.verticalLayout_5.addWidget(self.line_edit_7)

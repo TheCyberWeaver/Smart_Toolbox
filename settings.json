@@ -13,19 +13,7 @@
         600,
         450
     ],
-    "lef_menu_size" : {
-        "minimum" : 50,
-        "maximum" : 240
-    },
-    "left_menu_content_margins" : 3,
-    "left_column_size" : {
-        "minimum" : 0,
-        "maximum" : 240
-    },
-    "right_column_size" : {
-        "minimum" : 0,
-        "maximum" : 240
-    },
+
     "time_animation" : 500,
     "font" : {
         "family" : "Segoe UI",
@@ -35,5 +23,5 @@
     "absolute_path": "E:\\Smarttoolbox",
     "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
 
-    "maximum_apps_in_one_row": 2
+    "maximum_apps_in_one_row": 3
 }
