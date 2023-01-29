@@ -66,6 +66,9 @@ class SetupMainWindow:
         themes = Themes(self.settingFilesFolderPath)
         self.themes = themes.items
 
+
+        #Tab 1
+
         self.push_button_4 = PyPushButton(
             text="Run",
             radius=8,
@@ -161,6 +164,46 @@ class SetupMainWindow:
         self.line_edit_6.setMinimumHeight(30)
         self.line_edit_6.setMaximumWidth(150)
 
+        # Tab 2
+
+        self.push_button_5 = PyPushButton(
+            text="Run",
+            radius=8,
+            color=self.themes["app_color"]["text_foreground"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_hover=self.themes["app_color"]["dark_three"],
+            bg_color_pressed=self.themes["app_color"]["dark_four"]
+        )
+        self.push_button_5.setMaximumHeight(30)
+
+        self.push_button_6 = PyPushButton(
+            text="Open File",
+            radius=8,
+            color=self.themes["app_color"]["text_foreground"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_hover=self.themes["app_color"]["dark_three"],
+            bg_color_pressed=self.themes["app_color"]["dark_four"]
+        )
+        self.push_button_6.setMaximumHeight(30)
+        self.push_button_6.setMaximumWidth(150)
+
+        self.line_edit_7 = PyLineEdit(
+            text="",
+            place_holder_text="Opened File Path",
+            radius=8,
+            border_size=2,
+            color=self.themes["app_color"]["text_foreground"],
+            selection_color=self.themes["app_color"]["white"],
+            bg_color=self.themes["app_color"]["dark_one"],
+            bg_color_active=self.themes["app_color"]["dark_three"],
+            context_color=self.themes["app_color"]["context_color"]
+        )
+        self.line_edit_7.setMinimumHeight(30)
+        self.line_edit_7.setMaximumWidth(150)
+
+
+
+        #Tab 1 add widget
         self.ui.verticalLayout_7.addWidget(self.push_button_4)
 
         self.ui.verticalLayout_4.addWidget(self.line_edit)
@@ -170,3 +213,8 @@ class SetupMainWindow:
         self.ui.verticalLayout_6.addWidget(self.line_edit_4)
         self.ui.verticalLayout_6.addWidget(self.line_edit_5)
         self.ui.verticalLayout_6.addWidget(self.line_edit_6)
+
+        #Tab 2 add widget
+        self.ui.verticalLayout_8.addWidget(self.push_button_5)
+        self.ui.verticalLayout_5.addWidget(self.push_button_6)
+        self.ui.verticalLayout_5.addWidget(self.line_edit_7)

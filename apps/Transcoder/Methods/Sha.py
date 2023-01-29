@@ -11,7 +11,7 @@ class Sha(CoderInterface):
     version = '0.0.1'
 
     def __init__(self,str="",method="256"):
-        super().__init__(str,method)
+        super().__init__(str,method=method)
         self.FamilyMembers=[
             "512",
             "384",

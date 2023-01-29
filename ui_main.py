@@ -120,7 +120,7 @@ class UI_MainWindow(object):
         self.content_area_frame = QFrame()
 
         # CREATE LAYOUT
-        self.content_area_layout = QHBoxLayout(self.content_area_frame)
+        self.content_area_layout = QGridLayout(self.content_area_frame)
         self.content_area_layout.setContentsMargins(0, 0, 0, 0)
         self.content_area_layout.setSpacing(0)
 
@@ -162,10 +162,18 @@ class UI_MainWindow(object):
 
 
 
+        count=0
+        row=0
 
+        self.maximumAppsInOneRow=self.settings["maximum_apps_in_one_row"]
+        for row in range(len(self.apps)):
+            for column in range(self.maximumAppsInOneRow):
+                if count>=len(self.apps):
+                    break
+                self.content_area_layout.addWidget(self.apps[count],row,column)
+                count+=1
+            row += 1
 
-        for i in self.apps:
-            self.content_area_layout.addWidget(i)
 
         # ADD WIDGETS TO RIGHT LAYOUT
         # ///////////////////////////////////////////////////////////////

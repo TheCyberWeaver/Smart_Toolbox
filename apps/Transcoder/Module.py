@@ -4,9 +4,10 @@ class CoderInterface:
     version = ""    #模块版本
     def __init__(self, str="",key="",method=""):
         self.FamilyMember=method    #当前使用的加密族成员
-        self.FamilyMembers=[]   #加密族成员列表
+        self.FamilyMembers = []#加密族成员列表
         self.Key=key        #用户输入的密钥
         self.String=str     #用户输入的字符串
+        self.FailedStringOutput="Sorry, something went wrong!!!"
         self.configDictEncode = {   #用于对应加密族成员具体的实现方法
             "be_called_function_name": "be_called_function()",
         }

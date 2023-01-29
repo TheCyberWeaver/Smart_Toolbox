@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainPages</class>
+ <widget class="QWidget" name="MainPages">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>803</width>
+    <height>543</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_4">
+   <item>
+    <widget class="QStackedWidget" name="pages">
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
+     <widget class="QWidget" name="page_1">
+      <widget class="QGroupBox" name="groupBox">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>430</y>
+         <width>301</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="title">
+        <string>Declaration</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listWidget">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>60</y>
+         <width>181</width>
+         <height>111</height>
+        </rect>
+       </property>
+       <property name="editTriggers">
+        <set>QAbstractItemView::NoEditTriggers</set>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="output_text_edit_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>300</y>
+         <width>211</width>
+         <height>181</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="input_text_edit">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>50</y>
+         <width>531</width>
+         <height>131</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+       <property name="backgroundVisible">
+        <bool>false</bool>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>10</y>
+         <width>131</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_4">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>200</y>
+         <width>41</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Key</string>
+       </property>
+      </widget>
+      <widget class="QTextEdit" name="output_text_edit">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>300</y>
+         <width>531</width>
+         <height>111</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPlainTextEdit" name="input_text_edit_2">
+       <property name="geometry">
+        <rect>
+         <x>310</x>
+         <y>200</y>
+         <width>481</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="plainText">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_3">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>10</y>
+         <width>81</width>
+         <height>28</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="encode">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>250</y>
+         <width>91</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Encode</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="geometry">
+        <rect>
+         <x>570</x>
+         <y>420</y>
+         <width>221</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Smart Conversion (beta)</string>
+       </property>
+      </widget>
+      <widget class="QRadioButton" name="decode">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>248</y>
+         <width>101</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Decode</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_2">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>250</y>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Output Text</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton">
+       <property name="geometry">
+        <rect>
+         <x>620</x>
+         <y>250</y>
+         <width>171</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Convert</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>10</y>
+         <width>171</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Using:</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_5">
+       <property name="geometry">
+        <rect>
+         <x>100</x>
+         <y>270</y>
+         <width>41</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Info</string>
+       </property>
+       <property name="textFormat">
+        <enum>Qt::AutoText</enum>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label">
+       <property name="geometry">
+        <rect>
+         <x>260</x>
+         <y>10</y>
+         <width>121</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 14pt &quot;Segoe Print&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Input Text</string>
+       </property>
+      </widget>
+      <widget class="QListWidget" name="listWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>180</y>
+         <width>181</width>
+         <height>81</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="ClearButton">
+       <property name="geometry">
+        <rect>
+         <x>190</x>
+         <y>10</y>
+         <width>21</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="page_2">
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="label_8">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>32</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">font: 700 18pt &quot;Segoe Print&quot;;</string>
+         </property>
+         <property name="text">
+          <string>Password Manager</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_6">
+         <item>
+          <widget class="QLabel" name="label_9">
+           <property name="styleSheet">
+            <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+           </property>
+           <property name="text">
+            <string>number count</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_7">
+           <property name="styleSheet">
+            <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+           </property>
+           <property name="text">
+            <string>passwords strength</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="label_10">
+           <property name="styleSheet">
+            <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+           </property>
+           <property name="text">
+            <string>leaked passwords</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_2"/>
+       </item>
+       <item>
+        <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="page_3">
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QTabWidget" name="tabWidget">
+         <property name="styleSheet">
+          <string notr="true">QTabWidget::pane {
+	border-top:2px solid #C2C7CB;
+	position:absolute;
+	top:-10px;
+}
+
+/* 标签居中 */
+QTabWidget::tab-bar {
+	alignment:center;
+}
+
+QTabBar::tab {
+	background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
+                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
+	border:2px solid #C4C4C3;
+	border-bottom-color:#C2C7CB;
+	border-top-left-radius:4px;
+	border-top-right-radius:4px;
+	min-width:20px;
+	padding:2px;
+}
+
+QTabBar::tab:selected,QTabBar::tab:hover {
+	background:qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
+                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
+                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
+}
+
+QTabBar::tab:selected {
+	border-color:#9B9B9B;
+	border-bottom-color:#C2C7CB;
+}</string>
+         </property>
+         <property name="currentIndex">
+          <number>0</number>
+         </property>
+         <widget class="QWidget" name="tab">
+          <attribute name="title">
+           <string>Tab 1</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout">
+           <item>
+            <widget class="QLabel" name="label_11">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>32</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 18pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Linear Algebra</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_12">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>12</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Vector Field Visualization</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_6"/>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout_7"/>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_13">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>12</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Eigenvector and Eigenvalue</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_5"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_14">
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">font: 700 10pt &quot;Segoe Print&quot;;</string>
+             </property>
+             <property name="text">
+              <string>Inner Product</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_7"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="tab_2">
+          <attribute name="title">
+           <string>Tab 2</string>
+          </attribute>
+          <layout class="QVBoxLayout" name="verticalLayout_3"/>
+         </widget>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

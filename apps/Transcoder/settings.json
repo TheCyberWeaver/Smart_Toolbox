@@ -5,6 +5,6 @@
     "year" : 2023,
     "theme_name" : "test",
     "app_main":"E:\\Smarttoolbox\\apps\\Transcoder\\main.py",
-    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
+    "icon": "E:\\Smarttoolbox\\Resources\\Decoder-Encoder_Icon2.png",
     "absolute_path": "E:\\Smarttoolbox"
 }

@@ -10,7 +10,7 @@ class Base(CoderInterface):
     version = '0.0.1'
 
     def __init__(self,str="",method="64"):
-        super().__init__(str)
+        super().__init__(str,method=method)
         self.FamilyMembers = [
             "64",
             "32",

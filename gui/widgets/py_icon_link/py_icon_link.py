@@ -31,6 +31,8 @@ class PyIconLink(QLabel):
         self.shadow.setEnabled(False)
         self.setGraphicsEffect(self.shadow)
 
+
+
         self.setStyleSheet('PyIconLink{background-color: #c3ccdf; border-radius: 4px;}')
 
     def mouseReleaseEvent(self, a0: QMouseEvent) -> None:

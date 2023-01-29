@@ -94,8 +94,34 @@ class Ui_Form(object):
         self.verticalLayout_2.setObjectName(u"verticalLayout_2")
         self.label = QLabel(self.tab_2)
         self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 32))
+        self.label.setStyleSheet(u"font: 700 18pt \"Segoe Print\";")
+        self.label.setAlignment(Qt.AlignCenter)
 
         self.verticalLayout_2.addWidget(self.label)
+
+        self.label_2 = QLabel(self.tab_2)
+        self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(16777215, 12))
+        self.label_2.setStyleSheet(u"font: 700 10pt \"Segoe Print\";")
+        self.label_2.setAlignment(Qt.AlignCenter)
+
+        self.verticalLayout_2.addWidget(self.label_2)
+
+        self.horizontalLayout_2 = QHBoxLayout()
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
+        self.verticalLayout_5 = QVBoxLayout()
+        self.verticalLayout_5.setObjectName(u"verticalLayout_5")
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout_5)
+
+        self.verticalLayout_8 = QVBoxLayout()
+        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
+
+        self.horizontalLayout_2.addLayout(self.verticalLayout_8)
+
+
+        self.verticalLayout_2.addLayout(self.horizontalLayout_2)
 
         self.tabWidget.addTab(self.tab_2, "")
 
@@ -104,7 +130,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.tabWidget.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -115,7 +141,8 @@ class Ui_Form(object):
         self.label_11.setText(QCoreApplication.translate("Form", u"Linear Algebra", None))
         self.label_12.setText(QCoreApplication.translate("Form", u"Vector Field Visualization", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), QCoreApplication.translate("Form", u"Tab 1", None))
-        self.label.setText(QCoreApplication.translate("Form", u"TextLabel", None))
+        self.label.setText(QCoreApplication.translate("Form", u"Fast Fourier Transform", None))
+        self.label_2.setText(QCoreApplication.translate("Form", u"Signal Visualizatioin", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("Form", u"Tab 2", None))
     # retranslateUi
 

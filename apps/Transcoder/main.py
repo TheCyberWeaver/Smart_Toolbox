@@ -80,13 +80,19 @@ class Transcoder(QMainWindow):
         if self.Mode == 2:
             if self.method.Name == '':
                 self.final = 'Hey, select a function to encode, stupid!!!'
-            self.final = self.method.encode()
+            try:
+                self.final = self.method.encode()
+            except:
+                self.final= self.method.FailedStringOutput
 
         # 解码decode
         elif self.Mode == 1:
             if self.method.Name == '':
                 self.final = 'Hey, select a function to decode, stupid!!!'
-            self.final = self.method.decode()
+            try:
+                self.final = self.method.decode()
+            except:
+                self.final = self.method.FailedStringOutput
         else:
             pass
 

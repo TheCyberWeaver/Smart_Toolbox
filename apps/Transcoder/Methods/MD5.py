@@ -8,7 +8,7 @@ class MD5(CoderInterface):
                   "abc:900150983cd24fb0d6963f7d28e17f72"
     version = '0.0.1'
     def __init__(self,str="",method="32"):
-        super().__init__(str)
+        super().__init__(str,method=method)
         self.FamilyMembers = [
             "32",
             "16"

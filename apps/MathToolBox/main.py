@@ -25,6 +25,7 @@ import numpy as np
 #from readonly.HeightsModule import *
 import matplotlib
 import matplotlib.pyplot as plt
+import cv2
 
 matplotlib.use('Qt5Agg')
 
@@ -58,11 +59,13 @@ class MathToolBox(QWidget):
 
     def __init__(self):
         super().__init__()
-        self.settingFilesFolderPath = "apps\PasswordManager"
+        self.settingFilesFolderPath = "apps\MathToolBox"
 
         # 设置界面为我们生成的界面
         self.ui = Ui_Form()
         self.ui.setupUi(self)
+
+
 
         settings = Settings(self.settingFilesFolderPath)
         print("[info]: using", settings.settings_path)
@@ -73,11 +76,22 @@ class MathToolBox(QWidget):
 
         SetupMainWindow.setup_gui(self)
 
+        self.filePath=""
+
         self.uiInitiation()
 
     def uiInitiation(self):
+        # Tab 1
         self.push_button_4.clicked.connect(lambda: self.vectorfieldShow())
 
+
+        #Tab 2
+        self.push_button_6.clicked.connect(lambda: self.openFile())
+        self.push_button_5.clicked.connect(lambda: self.Conversion())
+
+    # ///////////////////////////////////////////////////////////////////////////////////////////////
+    # Tab 1
+    # ///////////////////////////////////////////////////////////////////////////////////////////////
     def vectorfieldShow(self):
 
 
@@ -113,6 +127,35 @@ class MathToolBox(QWidget):
             return eval(self.function_v_expression)
         except:
             return 0
+
+    # ///////////////////////////////////////////////////////////////////////////////////////////////
+    # Tab 2
+    # ///////////////////////////////////////////////////////////////////////////////////////////////
+    def openFile(self):
+        self.filePath, _ = QFileDialog.getOpenFileName(
+            self,
+            "选择你要上传的图片",  # 标题
+            r"D:\\",  # 起始目录
+            "图片类型 (*.png *.jpg *.bmp)"  # 选择类型过滤项，过滤内容在括号中
+        )
+        self.line_edit_7.setText(self.filePath)
+
+    def Conversion(self):
+        if self.filePath!="":
+            img = cv2.imread(self.filePath, 0)
+            f = np.fft.fft2(img)
+            fshift = np.fft.fftshift(f)
+            magnitude_spectrum = 20 * np.log(np.abs(fshift))
+            plt.subplot(121)
+            plt.imshow(img, cmap='gray')
+            plt.title('original')
+            plt.axis('off')
+            plt.subplot(122)
+            plt.imshow(magnitude_spectrum, cmap='gray')
+            plt.title('result')
+            plt.axis('off')
+            plt.show()
+
 if __name__ == "__main__":
     # 初始化QApplication，界面展示要包含在QApplication初始化之后，结束之前
     app = QApplication(sys.argv)

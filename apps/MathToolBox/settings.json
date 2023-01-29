@@ -5,7 +5,7 @@
     "year" : 2023,
     "theme_name" : "test_PasswordManager",
     "app_main":"E:\\Smarttoolbox\\apps\\MathToolBox\\main.py",
-    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
+    "icon": "E:\\Smarttoolbox\\Resources\\Math Toolbox_Icon1.png",
     "custom_title_bar": true,
     "startup_size": [
         600,
