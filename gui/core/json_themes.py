@@ -37,7 +37,7 @@ class Themes(object):
         # ///////////////////////////////////////////////////////////////
         setup_settings = Settings(settings_path)
         _settings = setup_settings.items
-
+        self.projectPath=self.get_project_path()
         # APP PATH
         # ///////////////////////////////////////////////////////////////
         json_file = f"gui/themes/{_settings['theme_name']}.json"
@@ -45,7 +45,7 @@ class Themes(object):
 
         #self.settings_path = os.path.normpath(os.path.join(app_path, json_file))
         #print(_settings)
-        self.settings_path=os.path.join(_settings["absolute_path"],json_file)
+        self.settings_path=os.path.join(self.get_project_path(),json_file)
         if not os.path.isfile(self.settings_path):
             print(
                 f"WARNING: \"gui/themes/{_settings['theme_name']}.json\" not found! check in the folder {self.settings_path}")
@@ -70,3 +70,11 @@ class Themes(object):
         with open(self.settings_path, "r", encoding='utf-8') as reader:
             settings = json.loads(reader.read())
             self.items = settings
+
+    def get_project_path(self):
+        # 项目名称
+        p_name = 'Smarttoolbox'
+        # 获取当前文件的绝对路径
+        p_path = os.path.abspath(os.path.dirname(__file__))
+        # 通过字符串截取方式获取
+        return p_path[:p_path.index(p_name) + len(p_name)]

@@ -1,0 +1,10 @@
+{
+    "app_name": "Test",
+    "version" : "v1.0.2",
+    "copyright" : "By: Thomas Lu",
+    "year" : 2023,
+    "theme_name" : "bright_theme",
+    "app_main":"C:\\Users\\Thomas\\Desktop\\\"test y.docx\"",
+    "icon": "C:\\Users\\Thomas\\Pictures\\INTERESTING\\Leef\\WeChat Image_20230114225521.jpg",
+    "absolute_path": "E:\\Smarttoolbox"
+}

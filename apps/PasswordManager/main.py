@@ -31,6 +31,8 @@ class PasswordManagerWindow(QWidget):
         settings = Settings(self.settingFilesFolderPath)
         print("[info]: using",settings.settings_path)
         self.settings = settings.items
+        self.projectPath=settings.projectPath
+
         # SETUP MAIN WINDOW
         # ///////////////////////////////////////////////////////////////
         #self.hide_grips = True  # Show/Hide resize grips
@@ -38,16 +40,22 @@ class PasswordManagerWindow(QWidget):
         SetupMainWindow.setup_gui(self)
         # 登录数据库
         self.mydb = mysql.connector.connect(
-            host="localhost",
-            user="root",
-            password="7bf9108cd896f33C!"
+            host=self.settings["mysql_host"],
+            user=self.settings["user"],
+            password=self.settings["password"]
         )
 
         self.cursorObject = self.mydb.cursor()
-        createDatabases = "CREATE DATABASE IF NOT EXISTS passwordmanager"
+
+        createDatabase = "CREATE DATABASE IF NOT EXISTS passwordmanager"
         useDatabase = "USE passwordmanager"
         createTable = "CREATE TABLE IF NOT EXISTS passwords(id INT PRIMARY KEY,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
-        self.cursorObject.execute(createDatabases)
+        try:
+            self.cursorObject.execute(useDatabase)
+        except:
+            print("[info]: Creating new Database called passwordmanager")
+
+        self.cursorObject.execute(createDatabase)
         self.cursorObject.execute(useDatabase)
         self.cursorObject.execute(createTable)
 
@@ -143,7 +151,7 @@ class PasswordManagerWindow(QWidget):
         self.mydb.commit()  # 提交数据，否则DDL语句不会自动commit
 
     def deleteCurrentRow(self):
-        print("hello")
+
         if self.table_widget.currentRow() != None:
             currentRowIndex = self.table_widget.currentRow()
         else:
@@ -158,7 +166,7 @@ class PasswordManagerWindow(QWidget):
         strength = 0
         leakedcount = 0
 
-        f = open(os.path.join(self.settings["absolute_path"],"Resources/All_List.txt"), 'r')
+        f = open(os.path.join(self.projectPath,"Resources/All_List.txt"), 'r')
         leakedList = f.readlines()
         f.close()
 

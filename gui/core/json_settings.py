@@ -19,30 +19,30 @@
 import json
 import os
 
+
 # APP SETTINGS
 # ///////////////////////////////////////////////////////////////
 class Settings(object):
     # APP PATH
     # ///////////////////////////////////////////////////////////////
 
-    
     # INIT SETTINGS
     # ///////////////////////////////////////////////////////////////
-    def __init__(self,settings_path="default"):
+    def __init__(self, settings_path="default"):
         super(Settings, self).__init__()
 
         self.json_file = "settings.json"
         self.app_path = os.path.abspath(os.getcwd())
-        if settings_path=="default":
+        self.projectPath = self.get_project_path()
+
+        if settings_path == "default":
             self.settings_path = os.path.normpath(os.path.join(self.app_path, self.json_file))
-        elif settings_path=="global":
-            self.settings_path=os.path.join(self.get_project_path(),self.json_file)
+        elif settings_path == "global":
+            self.settings_path = os.path.join(self.projectPath, self.json_file)
         else:
-            self.settings_path=os.path.join(os.path.join(self.get_project_path(),settings_path),self.json_file)
+            self.settings_path = os.path.join(os.path.join(self.projectPath, settings_path), self.json_file)
         if not os.path.isfile(self.settings_path):
             print(f"[WARNING]: \"settings.json\" not found! check in the folder {self.settings_path}")
-
-
 
         # DICTIONARY WITH SETTINGS
         # Just to have objects references
@@ -65,7 +65,6 @@ class Settings(object):
         with open(self.settings_path, "r", encoding='utf-8') as reader:
             settings = json.loads(reader.read())
             self.items = settings
-
     def get_project_path(self):
         # 项目名称
         p_name = 'Smarttoolbox'
@@ -73,3 +72,4 @@ class Settings(object):
         p_path = os.path.abspath(os.path.dirname(__file__))
         # 通过字符串截取方式获取
         return p_path[:p_path.index(p_name) + len(p_name)]
+

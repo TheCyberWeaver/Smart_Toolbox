@@ -1,12 +1,12 @@
 {
-    "app_name": "PasswordManager",
+    "app_name": "Personal Accounting System",
     "version" : "v1.0.2",
     "copyright" : "By: Thomas Lu",
     "year" : 2023,
     "theme_name" : "test_PasswordManager",
-    "app_main":"E:\\Smarttoolbox\\apps\\PasswordManager\\main.py",
+    "app_main":"E:\\Smarttoolbox\\apps\\PersonalAccountingSystem\\main.py",
     "icon": "E:\\Smarttoolbox\\Resources\\Password Manage_Icon.png",
-    "custom_title_bar": true,
+
     "mysql_host": "localhost",
     "user":"root",
     "password":"7bf9108cd896f33C!"
