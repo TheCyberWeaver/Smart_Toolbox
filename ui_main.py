@@ -49,7 +49,7 @@ class UI_MainWindow(object):
 
         self.central_widget.setStyleSheet(f'''
                             font: {self.settings["font"]["text_size"]}pt "{self.settings["font"]["family"]}";
-                            color: {self.themes["app_color"]["text_foreground"]};
+                            color: {self.themes["app_color"]["text_description"]};
                         ''')
 
         self.central_widget_layout = QVBoxLayout(self.central_widget)

@@ -251,14 +251,10 @@ class SetupMainWindow:
 
 
         # ADD WIDGETS
-        self.ui.horizontalLayout_2.addWidget(self.circular_progress_1)
-        self.ui.horizontalLayout_2.addWidget(self.circular_progress_2)
-        self.ui.horizontalLayout_2.addWidget(self.circular_progress_3)
+        self.ui.gridLayout.addWidget(self.circular_progress_1)
+        self.ui.gridLayout.addWidget(self.circular_progress_2)
+        self.ui.gridLayout.addWidget(self.circular_progress_3)
 
-        self.ui.horizontalLayout_3.addWidget(self.icon_button_1)
-        self.ui.horizontalLayout_3.addWidget(self.push_button_1)
-        self.ui.horizontalLayout_3.addWidget(self.push_button_2)
-        self.ui.horizontalLayout_3.addWidget(self.push_button_3)
 
-        self.ui.horizontalLayout_4.addWidget(self.table_widget)
+        self.ui.horizontalLayout_2.addWidget(self.table_widget)
 

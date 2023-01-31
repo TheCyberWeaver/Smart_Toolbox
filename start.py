@@ -2,11 +2,7 @@
 #from gui.uis.windows.main_window.functions_main_window import *
 from gui.core.json_settings import Settings
 # IMPORT QT CORE
-from PySide6.QtCore import *
-from PySide6.QtGui import *
-from PySide6.QtWidgets import *
-from PySide6.QtSvgWidgets import *
-from PySide6 import QtGui
+from qt_core import *
 # IMPORT SETTINGS
 from gui.core.functions import Functions
 from ui_main import UI_MainWindow
@@ -16,8 +12,6 @@ import os
 import sys
 from gui.widgets.py_icon_link import *
 from exe_IconExtraction import get_icon_from_exe
-
-
 
 
 class Launcher(QMainWindow):
@@ -30,31 +24,53 @@ class Launcher(QMainWindow):
         self.ui = UI_MainWindow()
         self.ui.setup_ui(self)
 
-        # LOAD SETTINGS
+        # LOAD SETTINGS using gloabal setting.json
         settings = Settings("global")
         self.settings = settings.items
         self.setWindowIcon(QIcon(self.settings["icon"]))
-        # SETUP MAIN WINDOW
-        # ///////////////////////////////////////////////////////////////
+
         self.hide_grips = True  # Show/Hide resize grips
+
         SetupMainWindow.setup_gui(self)
 
+        self.createContextMenu() #right click menu
 
+    def createContextMenu(self):
+        # 处理右键信号，必须将ContextMenuPolicy设置为Qt.CustomContextMenu
+        self.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.customContextMenuRequested.connect(self.showContextMenu)
 
+        self.contextMenu = QMenu(self)
+        self.action_Add = self.contextMenu.addAction('ADD')
+        # 将动作与处理函数相关联
+        # 这里为了简单，将所有action与同一个处理函数相关联，
+        # 当然也可以将他们分别与不同函数关联，实现不同的功能
+        self.action_Add.triggered.connect(self.addAppFromUser)
 
+    def showContextMenu(self, pos):
+        '''''
+        右键点击时调用的函数
+        '''
+        # 菜单显示前，将它移动到鼠标点击的位置
+        self.contextMenu.move(QtGui.QCursor().pos())
+        self.contextMenu.show()
+
+    def addAppFromUser(self):
+        print("add")
     def btn_clicked(self):
-        # GET BT CLICKED
+        # GET CLICKED
         btn = SetupMainWindow.setup_btns(self)
 
         if btn.objectName() == "btn_search":
             print("hello")
 
     def btn_released(self):
-        # GET BT CLICKED
+        # GET CLICKED
         btn = SetupMainWindow.setup_btns(self)
 
         # DEBUG
         print(f"Button {btn.objectName()}, released!")
+
     # RESIZE EVENT
     # ///////////////////////////////////////////////////////////////
     def resizeEvent(self, event):

@@ -17,7 +17,7 @@
     "time_animation" : 500,
     "font" : {
         "family" : "Segoe UI",
-        "title_size" : 14,
+        "title_size" : 16,
         "text_size" : 14
     },
     "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",

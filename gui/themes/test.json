@@ -15,7 +15,9 @@
         "context_color" : "#568af2",
         "context_hover" : "#6c99f4",
         "context_pressed" : "#3f6fd1",
-        "text_title" : "#dce1ec",
+
+        "menu_text_clor" : "#000000",
+
         "text_foreground" : "#f5f6f9",
         "text_description" : "#4f5b6e",
         "text_active" : "#dce1ec",

@@ -46,40 +46,39 @@ class PasswordManagerWindow(QWidget):
 
         createDatabase = "CREATE DATABASE IF NOT EXISTS personal_accounting_system"
         useDatabase = "USE personal_accounting_system"
-        createTable = "CREATE TABLE IF NOT EXISTS wallet(id INT PRIMARY KEY,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
+        createTableWallet = "CREATE TABLE IF NOT EXISTS wallet(id INT PRIMARY KEY,name varchar(50),description text, current_money INT);"
+
         try:
             self.cursorObject.execute(useDatabase)
         except:
             print("[info]: Creating new Database called passwordmanager")
 
+
         self.cursorObject.execute(createDatabase)
         self.cursorObject.execute(useDatabase)
-        self.cursorObject.execute(createTable)
+        self.cursorObject.execute(createTableWallet)
 
-        self.fetchAllFromDatabase()
+        self.fetchAllWalletFromDatabase()
 
         self.uiInitiation()
 
     def uiInitiation(self):
         pass
 
-    def fetchAllFromDatabase(self):
+    def fetchAllWalletFromDatabase(self):
 
         # 获取所有数据库信息并打印到表上
-        showall = "select * from passwords"
+        showall = "select * from wallet"
 
         self.cursorObject.execute(showall)
 
         result = self.cursorObject.fetchall()
         # print(result)
 
-        for id, name, username, password, date, other, description in result:
+        for id, name, description,money in result:
             row_number = self.table_widget.rowCount()
             self.table_widget.insertRow(row_number)  # Insert row
             self.table_widget.setItem(row_number, 0, QTableWidgetItem(name))  # Add name
-            self.table_widget.setItem(row_number, 1, QTableWidgetItem(username))  # Add user
-            self.table_widget.setItem(row_number, 2, QTableWidgetItem(password))  # Add pass
-            self.table_widget.setItem(row_number, 3, QTableWidgetItem(other))  # Add pass
             self.table_widget.setItem(row_number, 4, QTableWidgetItem(description))
             self.table_widget.setRowHeight(row_number, 22)
         # 刷新上三条统计信息
