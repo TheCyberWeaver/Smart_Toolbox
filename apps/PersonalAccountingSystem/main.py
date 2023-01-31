@@ -16,7 +16,7 @@ from ui_main import *
 
 from gui.core.json_settings import Settings
 from setup_ui import *
-from ui_PasswordManager import Ui_Dialog
+from ui_PAS_window import Ui_Dialog
 # 继承QWidget类，以获取其属性和方法
 class PasswordManagerWindow(QWidget):
     def __init__(self):
@@ -44,9 +44,9 @@ class PasswordManagerWindow(QWidget):
 
         self.cursorObject = self.mydb.cursor()
 
-        createDatabase = "CREATE DATABASE IF NOT EXISTS passwordmanager"
-        useDatabase = "USE passwordmanager"
-        createTable = "CREATE TABLE IF NOT EXISTS passwords(id INT PRIMARY KEY,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
+        createDatabase = "CREATE DATABASE IF NOT EXISTS personal_accounting_system"
+        useDatabase = "USE personal_accounting_system"
+        createTable = "CREATE TABLE IF NOT EXISTS wallet(id INT PRIMARY KEY,name varchar(50),username varchar(50),password varchar(50), date date,other text,description text);"
         try:
             self.cursorObject.execute(useDatabase)
         except:
@@ -61,16 +61,10 @@ class PasswordManagerWindow(QWidget):
         self.uiInitiation()
 
     def uiInitiation(self):
-        self.icon_button_1.clicked.connect(lambda: self.fetchAllFromDatabase())
-        self.push_button_1.clicked.connect(lambda: self.saveAll())
-        self.push_button_2.clicked.connect(lambda: self.table_widget.insertRow(self.table_widget.rowCount()))
-        self.push_button_3.clicked.connect(lambda: self.deleteCurrentRow())
+        pass
 
     def fetchAllFromDatabase(self):
 
-        # 保留表头
-        self.table_widget.clearContents()
-        self.table_widget.setRowCount(0)
         # 获取所有数据库信息并打印到表上
         showall = "select * from passwords"
 
@@ -104,58 +98,7 @@ class PasswordManagerWindow(QWidget):
         # 统计信息
 
     def updateStatistic(self, result):
-
-        strength = 0
-        leakedcount = 0
-
-        f = open(os.path.join(self.projectPath,"Resources/All_List.txt"), 'r')
-        leakedList = f.readlines()
-        f.close()
-
-        savedList = []
-        for id, name, username, password, date, other, description in result:
-            strength += self.passwordStrength(password)
-            if password in savedList:
-                leakedcount += 1
-            else:
-                for word in leakedList:
-                    if password == word.rstrip("\n"):
-                        leakedcount += 1
-                        savedList.append(password)
-                        break
-        # print(savedList)
-
-        percentage = int(strength / (4 * len(result)) * 100)
-        self.circular_progress_1.set_value(len(result))
-        self.circular_progress_2.set_value(percentage)
-        # print(leakedcount)
-        self.circular_progress_3.set_value(int(leakedcount / len(result) * 100))
-
-        # 计算单条密码的复杂度
-
-    def passwordStrength(self, str):
-
-        password = str
-
-        dig = 0
-        lCase = 0
-        hCase = 0
-        punnctuation = 0
-
-        if len(password) <= 8:
-            return 0
-        else:
-            for ch in password:
-                if ch in string.digits:
-                    dig = 1
-                elif ch in string.ascii_lowercase:
-                    lCase = 1
-                elif ch in string.ascii_uppercase:
-                    hCase = 1
-                elif ch in string.punctuation:
-                    punnctuation = 1
-            return dig + lCase + hCase + punnctuation
-
+        pass
     def btn_clicked(self):
         # GET BT CLICKED
         btn = SetupMainWindow.setup_btns(self)

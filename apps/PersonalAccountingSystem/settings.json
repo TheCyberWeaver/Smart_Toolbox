@@ -5,7 +5,7 @@
     "year" : 2023,
     "theme_name" : "test_PasswordManager",
     "app_main":"E:\\Smarttoolbox\\apps\\PersonalAccountingSystem\\main.py",
-    "icon": "E:\\Smarttoolbox\\Resources\\Password Manage_Icon.png",
+    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
 
     "mysql_host": "localhost",
     "user":"root",
