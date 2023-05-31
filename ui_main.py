@@ -19,19 +19,18 @@ from gui.core.json_themes import Themes
 from gui.widgets import *
 
 from gui.widgets.py_icon_link import *
-
+import json
 import os
 class UI_MainWindow(object):
     def setup_ui(self, parent):
         if not parent.objectName():
             parent.setObjectName("MainWindow")
 
-        self.Items=[]
 
         # LOAD SETTINGS
         # ///////////////////////////////////////////////////////////////
-        settings = Settings()
-        self.settings = settings.items
+
+        self.globalSettings = Settings().globalSettingsItems
 
         # LOAD THEME COLOR
         # ///////////////////////////////////////////////////////////////
@@ -39,8 +38,8 @@ class UI_MainWindow(object):
         self.themes = themes.items
 
         # SET INITIAL PARAMETERS
-        parent.resize(self.settings["startup_size"][0], self.settings["startup_size"][1])
-        parent.setMinimumSize(self.settings["minimum_size"][0], self.settings["minimum_size"][1])
+        parent.resize(self.globalSettings["startup_size"][0], self.globalSettings["startup_size"][1])
+        parent.setMinimumSize(self.globalSettings["minimum_size"][0], self.globalSettings["minimum_size"][1])
 
         # SET CENTRAL WIDGET
         # Add central widget to app
@@ -48,13 +47,13 @@ class UI_MainWindow(object):
         self.central_widget = QWidget()
 
         self.central_widget.setStyleSheet(f'''
-                            font: {self.settings["font"]["text_size"]}pt "{self.settings["font"]["family"]}";
+                            font: {self.globalSettings["font"]["text_size"]}pt "{self.globalSettings["font"]["family"]}";
                             color: {self.themes["app_color"]["text_description"]};
                         ''')
 
         self.central_widget_layout = QVBoxLayout(self.central_widget)
 
-        if self.settings["custom_title_bar"]:
+        if self.globalSettings["custom_title_bar"]:
             self.central_widget_layout.setContentsMargins(10, 10, 10, 10)
         else:
             self.central_widget_layout.setContentsMargins(0, 0, 0, 0)
@@ -67,7 +66,7 @@ class UI_MainWindow(object):
         )
 
         # If disable custom title bar
-        if not self.settings["custom_title_bar"]:
+        if not self.globalSettings["custom_title_bar"]:
             self.window.set_stylesheet(border_radius=0, border_size=0)
 
         # ADD PY WINDOW TO CENTRAL WIDGET
@@ -102,9 +101,9 @@ class UI_MainWindow(object):
             dark_one=self.themes["app_color"]["dark_one"],
             text_foreground=self.themes["app_color"]["text_foreground"],
             radius=8,
-            font_family=self.settings["font"]["family"],
-            title_size=self.settings["font"]["title_size"],
-            is_custom_title_bar=self.settings["custom_title_bar"]
+            font_family=self.globalSettings["font"]["family"],
+            title_size=self.globalSettings["font"]["title_size"],
+            is_custom_title_bar=self.globalSettings["custom_title_bar"]
         )
         self.title_bar_layout.addWidget(self.title_bar)
 
@@ -138,10 +137,10 @@ class UI_MainWindow(object):
         # ADD CUSTOM WIDGET CREDITS
         self.credits = PyCredits(
             bg_two=self.themes["app_color"]["bg_two"],
-            copyright=self.settings["copyright"],
-            version=self.settings["version"],
-            font_family=self.settings["font"]["family"],
-            text_size=self.settings["font"]["text_size"],
+            copyright=self.globalSettings["copyright"],
+            version=self.globalSettings["version"],
+            font_family=self.globalSettings["font"]["family"],
+            text_size=self.globalSettings["font"]["text_size"],
             text_description_color=self.themes["app_color"]["text_description"]
         )
 
@@ -149,23 +148,35 @@ class UI_MainWindow(object):
         self.credits_layout.addWidget(self.credits)
 
         # Scan all the app files according to settings.json
-        print("[Info]: Finding all Apps...")
-        self.apps_settings_path=list_allapps("E:\\Smarttoolbox\\apps")
-        self.apps_settings=[]
+        print("[Info][ui_main.py]: Finding all Apps...")
+        self.apps_settings_path=Settings().appList  #获取app的setting文件的路径列表
+        self.apps_settings=[]                       #存放app的setting文件的内容
+
         for path in self.apps_settings_path:
-            self.apps_settings.append(Settings(path).items)
-        self.apps=[]
-        for setting_file in self.apps_settings:
-            print("[Info]: found app: ",setting_file["app_main"])
-            app=PyIconLink(self,setting_file["app_main"],setting_file["icon"])
+            with open(path, "r", encoding='utf-8') as reader:
+                self.apps_settings.append(json.loads(reader.read()))
+        self.apps=[]        #存放app的UI控件
+
+        for setting_file_index in range(len(self.apps_settings)):
+            #判断是否存在appsettings所包含的启动文件
+            if not os.path.isfile(self.apps_settings[setting_file_index]["app_main"]):
+                print("[Warning][ui_main.py]: could not fin app: ",self.apps_settings[setting_file_index]["app_main"])
+            else:
+                print("[Info][ui_main.py]: found app: ",self.apps_settings[setting_file_index]["app_main"])
+            #添加一个app控件
+            app=PyIconLink(self,
+                           lnk_path=self.apps_settings[setting_file_index]["app_main"],
+                           icon_path=self.apps_settings[setting_file_index]["icon"],
+                           settings_path=self.apps_settings_path[setting_file_index],
+                           globalAppListSavePath=Settings().appListSavePaths
+                           )
             self.apps.append(app)
 
 
-
+        #控制app控件每行显示的数量
         count=0
         row=0
-
-        self.maximumAppsInOneRow=self.settings["maximum_apps_in_one_row"]
+        self.maximumAppsInOneRow=self.globalSettings["maximum_apps_in_one_row"]
         for row in range(len(self.apps)):
             for column in range(self.maximumAppsInOneRow):
                 if count>=len(self.apps):
@@ -188,16 +199,3 @@ class UI_MainWindow(object):
         # ADD CENTRAL WIDGET AND SET CONTENT MARGINS
         # ///////////////////////////////////////////////////////////////
         parent.setCentralWidget(self.central_widget)
-
-def list_allapps(path, apps=[]):
-    if os.path.exists(path):
-        files = os.listdir(path)
-    else:
-        print('this path not exist')
-    for file in files:
-        if os.path.isdir(os.path.join(path, file)):
-            list_allapps(os.path.join(path, file), apps)
-        else:
-            if file=="settings.json":
-                apps.append(path)
-    return apps

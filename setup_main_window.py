@@ -31,8 +31,8 @@ class SetupMainWindow:
         # SETUP MAIN WINDOw
         # Load widgets from "gui\uis\main_window\ui_main.py"
         # ///////////////////////////////////////////////////////////////
-        self.ui = UI_MainWindow()
-        self.ui.setup_ui(self)
+        #self.ui = UI_MainWindow()
+        #self.ui.setup_ui(self)
     # ADD TITLE BAR MENUS
     # ///////////////////////////////////////////////////////////////
     add_title_bar_menus = [
@@ -89,7 +89,7 @@ class SetupMainWindow:
         # LOAD SETTINGS
         # ///////////////////////////////////////////////////////////////
         settings = Settings()
-        self.settings = settings.items
+        self.settings = settings.globalSettingsItems
 
         # LOAD THEME COLOR
         # ///////////////////////////////////////////////////////////////

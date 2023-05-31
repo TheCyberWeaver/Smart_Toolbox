@@ -25,7 +25,7 @@ class Functions:
     # SET SVG ICON
     # ///////////////////////////////////////////////////////////////
     def set_svg_icon(icon_name):
-        app_path = Settings("global").get_project_path()
+        app_path = Settings().get_project_path()
         folder = "gui/images/svg_icons/"
         path = os.path.join(app_path, folder)
         icon = os.path.normpath(os.path.join(path, icon_name))
@@ -34,7 +34,7 @@ class Functions:
     # SET SVG IMAGE
     # ///////////////////////////////////////////////////////////////
     def set_svg_image(icon_name):
-        app_path = Settings("global").get_project_path()
+        app_path = Settings().get_project_path()
         folder = "gui/images/svg_images/"
         path = os.path.join(app_path, folder)
         icon = os.path.normpath(os.path.join(path, icon_name))
@@ -43,7 +43,7 @@ class Functions:
     # SET IMAGE
     # ///////////////////////////////////////////////////////////////
     def set_image(image_name):
-        app_path = Settings("global").get_project_path()
+        app_path = Settings().get_project_path()
         folder = "gui/images/images/"
         path = os.path.join(app_path, folder)
         image = os.path.normpath(os.path.join(path, image_name))

@@ -3,7 +3,7 @@
     "version" : "v2.2.2",
     "copyright" : "By: Thomas Lu",
     "year" : 2023,
-    "theme_name" : "test",
+    "theme_name" : "default",
     "custom_title_bar": true,
     "startup_size": [
         600,

@@ -7,12 +7,17 @@ from qt_core import *
 from gui.core.functions import Functions
 from ui_main import UI_MainWindow
 from setup_main_window import SetupMainWindow
-
+from ui_New import Ui_Form
+from WidgetNew import WidgetNew
 import os
 import sys
+
+from PySide6.QtWidgets import QSystemTrayIcon, QMenu, QWidget
+from PySide6.QtGui import QIcon, QAction
 from gui.widgets.py_icon_link import *
 from exe_IconExtraction import get_icon_from_exe
 
+from Tray import MySysTrayWidget
 
 class Launcher(QMainWindow):
     def __init__(self):
@@ -23,10 +28,9 @@ class Launcher(QMainWindow):
         # ///////////////////////////////////////////////////////////////
         self.ui = UI_MainWindow()
         self.ui.setup_ui(self)
-
         # LOAD SETTINGS using gloabal setting.json
-        settings = Settings("global")
-        self.settings = settings.items
+        settings = Settings()
+        self.settings = settings.globalSettingsItems
         self.setWindowIcon(QIcon(self.settings["icon"]))
 
         self.hide_grips = True  # Show/Hide resize grips
@@ -41,6 +45,8 @@ class Launcher(QMainWindow):
         self.customContextMenuRequested.connect(self.showContextMenu)
 
         self.contextMenu = QMenu(self)
+        self.contextMenu.setStyleSheet("font: 12pt \"Segoe UI\";")
+
         self.action_Add = self.contextMenu.addAction('ADD')
         # 将动作与处理函数相关联
         # 这里为了简单，将所有action与同一个处理函数相关联，
@@ -48,7 +54,7 @@ class Launcher(QMainWindow):
         self.action_Add.triggered.connect(self.addAppFromUser)
 
     def showContextMenu(self, pos):
-        '''''
+        '''
         右键点击时调用的函数
         '''
         # 菜单显示前，将它移动到鼠标点击的位置
@@ -56,7 +62,13 @@ class Launcher(QMainWindow):
         self.contextMenu.show()
 
     def addAppFromUser(self):
-        print("add")
+        '''
+            添加app，显示子窗口
+        '''
+        print("[Info][start.py]: add cllicked")
+
+        self.propertyWindow=WidgetNew(self)
+        self.propertyWindow.show()
     def btn_clicked(self):
         # GET CLICKED
         btn = SetupMainWindow.setup_btns(self)
@@ -81,6 +93,11 @@ class Launcher(QMainWindow):
     def mousePressEvent(self, event):
         # SET DRAG POS WINDOW
         self.dragPos = event.globalPos()
+
+    def closeEvent(self, event):
+        # 忽略退出事件，而是隐藏到托盘
+        event.ignore()
+        self.hide()
 if __name__ == "__main__":
     app = QApplication(sys.argv)  # 实例化一个应用
 
@@ -90,4 +107,5 @@ if __name__ == "__main__":
 
     window.show()  # 显示窗口
 
+    tray = MySysTrayWidget(app=app, window=window)
     sys.exit(app.exec())  # 使窗口保持显示状态。

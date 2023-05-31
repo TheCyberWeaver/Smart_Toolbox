@@ -51,7 +51,7 @@ class PyWindow(QFrame):
         # LOAD SETTINGS
         # ///////////////////////////////////////////////////////////////
         settings = Settings()
-        self.settings = settings.items
+        self.settings = settings.globalSettingsItems
 
         # PROPERTIES
         # ///////////////////////////////////////////////////////////////

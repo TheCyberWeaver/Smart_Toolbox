@@ -75,7 +75,7 @@ class PyTitleBar(QWidget):
         super().__init__()
 
         settings = Settings()
-        self.settings = settings.items
+        self.settings = settings.globalSettingsItems
 
         # PARAMETERS
         self._logo_image = logo_image

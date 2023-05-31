@@ -3,7 +3,7 @@
     "version" : "v2.2.2",
     "copyright" : "By: Thomas Lu",
     "year" : 2023,
-    "theme_name" : "test",
+    "theme_name" : "default",
     "custom_title_bar": true,
     "startup_size": [
         600,
@@ -13,25 +13,14 @@
         600,
         450
     ],
-    "lef_menu_size" : {
-        "minimum" : 50,
-        "maximum" : 240
-    },
-    "left_menu_content_margins" : 3,
-    "left_column_size" : {
-        "minimum" : 0,
-        "maximum" : 240
-    },
-    "right_column_size" : {
-        "minimum" : 0,
-        "maximum" : 240
-    },
+
     "time_animation" : 500,
     "font" : {
         "family" : "Segoe UI",
-        "title_size" : 14,
+        "title_size" : 16,
         "text_size" : 14
     },
-    "absolute_path": "E:\\Smarttoolbox",
-    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico"
+    "icon": "E:\\Smarttoolbox\\Resources\\logo_top_22x22.ico",
+
+    "maximum_apps_in_one_row": 3
 }

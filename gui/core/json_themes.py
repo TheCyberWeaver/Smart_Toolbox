@@ -36,7 +36,7 @@ class Themes(object):
         # LOAD SETTINGS
         # ///////////////////////////////////////////////////////////////
         setup_settings = Settings(settings_path)
-        _settings = setup_settings.items
+        _settings = setup_settings.globalSettingsItems
         self.projectPath=self.get_project_path()
         # APP PATH
         # ///////////////////////////////////////////////////////////////

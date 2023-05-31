@@ -31,40 +31,28 @@ class Settings(object):
     def __init__(self, settings_path="default"):
         super(Settings, self).__init__()
 
-        self.json_file = "settings.json"
-        self.app_path = os.path.abspath(os.getcwd())
         self.projectPath = self.get_project_path()
+        self.json_file = "settings.json"                #统一的config文件名称
+        self.appListSavePaths = os.path.join(self.projectPath,"applist.json")   #所有app路径的记录文件的路径
 
-        if settings_path == "default":
-            self.settings_path = os.path.normpath(os.path.join(self.app_path, self.json_file))
-        elif settings_path == "global":
-            self.settings_path = os.path.join(self.projectPath, self.json_file)
-        else:
-            self.settings_path = os.path.join(os.path.join(self.projectPath, settings_path), self.json_file)
-        if not os.path.isfile(self.settings_path):
-            print(f"[WARNING]: \"settings.json\" not found! check in the folder {self.settings_path}")
+        self.globleSettingsPath = os.path.join(self.projectPath, self.json_file)     #
 
-        # DICTIONARY WITH SETTINGS
-        # Just to have objects references
-        self.items = {}
+        if not os.path.isfile(self.globleSettingsPath):
+            print(f"[WARNING]: \"settings.json\" not found! check in the folder {self.globleSettingsPath}")
 
-        # DESERIALIZE
-        self.deserialize()
+        #获取smarttoolbox本身的setting条目
+        self.globalSettingsItems = {}
 
-    # SERIALIZE JSON
-    # ///////////////////////////////////////////////////////////////
-    def serialize(self):
-        # WRITE JSON FILE
-        with open(self.settings_path, "w", encoding='utf-8') as write:
-            json.dump(self.items, write, indent=4)
+        with open(self.globleSettingsPath, "r", encoding='utf-8') as reader:
+            self.globalSettingsItems = json.loads(reader.read())
 
-    # DESERIALIZE JSON
-    # ///////////////////////////////////////////////////////////////
-    def deserialize(self):
-        # READ JSON FILE
-        with open(self.settings_path, "r", encoding='utf-8') as reader:
-            settings = json.loads(reader.read())
-            self.items = settings
+        #存放所有app的setting.json的路径
+        self.appList=[]
+
+        with open(self.appListSavePaths, "r", encoding='utf-8') as reader:
+            self.appList = json.loads(reader.read())
+
+    #获取当前项目路径，获取文件绝对路径再减去项目名称，因此项目名称不可改变
     def get_project_path(self):
         # 项目名称
         p_name = 'Smarttoolbox'
@@ -72,4 +60,3 @@ class Settings(object):
         p_path = os.path.abspath(os.path.dirname(__file__))
         # 通过字符串截取方式获取
         return p_path[:p_path.index(p_name) + len(p_name)]
-
