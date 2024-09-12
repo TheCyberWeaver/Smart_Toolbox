@@ -6,12 +6,12 @@
     "theme_name" : "default",
     "custom_title_bar": true,
     "startup_size": [
-        600,
-        450
+        400,
+        500
     ],
     "minimum_size": [
-        600,
-        450
+        400,
+        500
     ],
 
     "time_animation" : 500,

@@ -153,8 +153,15 @@ class UI_MainWindow(object):
         self.apps_settings=[]                       #存放app的setting文件的内容
 
         for path in self.apps_settings_path:
-            with open(path, "r", encoding='utf-8') as reader:
-                self.apps_settings.append(json.loads(reader.read()))
+            try:
+                with open(path, "r", encoding='utf-8') as reader:
+                    self.apps_settings.append(json.loads(reader.read()))
+
+            except FileNotFoundError:
+                print("[Error][ui_main.py]: "+path+" Not Found")
+            except json.decoder.JSONDecodeError:
+                print("[Error][ui_main.py]: "+path+" read error")
+                continue
         self.apps=[]        #存放app的UI控件
 
         for setting_file_index in range(len(self.apps_settings)):
