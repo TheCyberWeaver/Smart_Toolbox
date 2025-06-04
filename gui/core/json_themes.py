@@ -18,6 +18,7 @@
 # ///////////////////////////////////////////////////////////////
 import json
 import os
+from pathlib import Path
 
 # IMPORT SETTINGS
 # ///////////////////////////////////////////////////////////////
@@ -72,9 +73,8 @@ class Themes(object):
             self.items = settings
 
     def get_project_path(self):
-        # 项目名称
-        p_name = 'Smarttoolbox'
-        # 获取当前文件的绝对路径
-        p_path = os.path.abspath(os.path.dirname(__file__))
-        # 通过字符串截取方式获取
-        return p_path[:p_path.index(p_name) + len(p_name)]
+        """Return project root path without relying on a fixed directory name."""
+
+        # ``json_themes.py`` is inside ``<root>/gui/core``; two ``parents`` up
+        # yields the repository root independent of how the folder is named.
+        return str(Path(__file__).resolve().parents[2])

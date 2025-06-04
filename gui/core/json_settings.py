@@ -18,6 +18,7 @@
 # ///////////////////////////////////////////////////////////////
 import json
 import os
+from pathlib import Path
 
 
 # APP SETTINGS
@@ -54,9 +55,16 @@ class Settings(object):
 
     #获取当前项目路径，获取文件绝对路径再减去项目名称，因此项目名称不可改变
     def get_project_path(self):
-        # 项目名称
-        p_name = 'Smarttoolbox'
-        # 获取当前文件的绝对路径
-        p_path = os.path.abspath(os.path.dirname(__file__))
-        # 通过字符串截取方式获取
-        return p_path[:p_path.index(p_name) + len(p_name)]
+        """Return project root path.
+
+        The previous implementation searched for a hard coded folder name
+        (``Smarttoolbox``) inside the current path. When the project folder
+        name differs, ``str.index`` raises ``ValueError`` and the application
+        crashes.  Instead of relying on the folder name, determine the project
+        root relative to this file location.
+        """
+
+        # ``json_settings.py`` lives in ``<root>/gui/core``.  ``parents[2]``
+        # will therefore point to the repository root regardless of its
+        # actual name.
+        return str(Path(__file__).resolve().parents[2])
